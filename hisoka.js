@@ -589,7 +589,7 @@ hisoka.sendMessage(m.chat, { text: `Pertanyaan : ${q}\nJawaban : ${ga}` }, { quo
 					break
 case 'bagaimanakah':
 				if (!q) return m.reply(`Penggunaan ${command} text\n\nContoh : ${command} saya wibu`)
-					const gimana = ['Gak Gimana2', 'Ya gitu', 'Maaf Bot Tidak Bisa Menjawab', 'Coba Deh Cari Di Gugel','Masa?','Pusing ah','Owhh Begitu:(','Yang Sabar Ya :(','Gimana yeee','Gk Tau','Mending Turu Lagi'']
+					const gimana = ['Gak Gimana2', 'Ya gitu', 'Maaf Bot Tidak Bisa Menjawab', 'Coba Deh Cari Di Gugel','Masa?','Pusing ah','Owhh Begitu:(','Yang Sabar Ya :(','Gimana yeee','Gk Tau','Mending Turu Lagi']
 					const ya = gimana[Math.floor(Math.random() * gimana.length)]
 hisoka.sendMessage(m.chat, { text: `Pertanyaan : ${q}\nJawaban : ${ya}` }, { quoted: m })
 
