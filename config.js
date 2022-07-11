@@ -18,8 +18,8 @@ global.APIKeys = {
 }
 
 // Other
-global.owner = ['6282252285143']
-global.premium = ['6282252285143']
+global.owner = ['6281522523071']
+global.premium = ['6281522523071']
 global.namaowner = ['𝓡𝔂𝓪𝓷 𝓐𝓭𝓲𝓽𝔂𝓪']
 global.namabot = ['Yαɳɳ-Mԃ']
 global.packname = '© Yαɳɳ-Mԃ'
