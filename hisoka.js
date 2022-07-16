@@ -91,10 +91,10 @@ module.exports = hisoka = async (hisoka, m, chatUpdate, store) => {
             if (typeof setting !== 'object') global.db.data.settings[botNumber] = {}
 	    if (setting) {
 		if (!isNumber(setting.status)) setting.status = 0
-		if (!('autobio' in setting)) setting.autobio = false
+		if (!('autobio' in setting)) setting.autobio = true
 	    } else global.db.data.settings[botNumber] = {
 		status: 0,
-		autobio: false,
+		autobio: true,
 	    }
 	    
         } catch (err) {
@@ -129,7 +129,7 @@ module.exports = hisoka = async (hisoka, m, chatUpdate, store) => {
 	    let setting = global.db.data.settings[botNumber]
 	    if (new Date() * 1 - setting.status > 1000) {
 		let uptime = await runtime(process.uptime())
-		await hisoka.setStatus(`${'Imv Bot By : IMV BOT ⫹⫺'} | Runtime : ${runtime(uptime)}`)
+		await hisoka.setStatus(`${'ɪᴍᴠ ʙᴏᴛ ☕︎'} | Runtime : ${runtime(uptime)}`)
 		setting.status = new Date() * 1
 	    }
 	}
@@ -143,8 +143,8 @@ module.exports = hisoka = async (hisoka, m, chatUpdate, store) => {
         let isLinkThisGc = new RegExp(gclink, 'i')
         let isgclink = isLinkThisGc.test(m.text)
         if (isgclink) return m.reply(`Ehh maaf gak jadi, karena kamu ngirim link group ini`)
-        if (isAdmins) return m.reply(`maaf kamu admin`)
-        if (isCreator) return m.reply(`maaf kamu owner bot ku`)
+        if (isAdmins) return m.reply(`Ehh maaf kamu admin`)
+        if (isCreator) return m.reply(`Ehh maaf kamu owner bot ku`)
         hisoka.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
         }
         }
@@ -200,7 +200,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebaklagu[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'TEBAK LAGU' }, type: 1 }], `🎮 Tebak Lagu 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, 'IMV BOT彡', m)
+                await hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'TEBAK LAGU' }, type: 1 }], `🎮 Tebak Lagu 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                 delete tebaklagu[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -218,7 +218,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebakgambar[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'TEBAK GAMBAR' }, type: 1 }], `🎮 Tebak Gambar 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, 'IMV BOT彡', m)
+                await hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'TEBAK GAMBAR' }, type: 1 }], `🎮 Tebak Gambar 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                 delete tebakgambar[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -227,7 +227,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebakkata[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'TEBAK KATA' }, type: 1 }], `🎮 Tebak Kata 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, 'IMV BOT彡', m)
+                await hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'TEBAK KATA' }, type: 1 }], `🎮 Tebak Kata 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                 delete tebakkata[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -237,7 +237,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             jawaban = caklontong[m.sender.split('@')[0]]
 	    deskripsi = caklontong_desk[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'TEBAK LONTONG' }, type: 1 }], `🎮 Cak Lontong 🎮\n\nJawaban Benar 🎉\n*${deskripsi}*\n\nIngin bermain lagi? tekan button dibawah`, 'IMV BOT ⫹⫺', m)
+                await hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'TEBAK LONTONG' }, type: 1 }], `🎮 Cak Lontong 🎮\n\nJawaban Benar 🎉\n*${deskripsi}*\n\nIngin bermain lagi? tekan button dibawah`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                 delete caklontong[m.sender.split('@')[0]]
 		delete caklontong_desk[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
@@ -247,7 +247,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebakkalimat[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'TEBAK KALIMAT' }, type: 1 }], `🎮 Tebak Kalimat 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, 'IMV BOT ⫹⫺', m)
+                await hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'TEBAK KALIMAT' }, type: 1 }], `🎮 Tebak Kalimat 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                 delete tebakkalimat[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -256,7 +256,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebaklirik[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'TEBAK LIRIK' }, type: 1 }], `🎮 Tebak Lirik 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, 'IMV BOT彡', m)
+                await hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'TEBAK LIRIK' }, type: 1 }], `🎮 Tebak Lirik 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                 delete tebaklirik[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -265,7 +265,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebaktebakan[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak tebakan', buttonText: { displayText: 'TEBAK TEBAKAN' }, type: 1 }], `🎮 Tebak Tebakan 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, 'IMV BOT彡', m)
+                await hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak tebakan', buttonText: { displayText: 'TEBAK TEBAKAN' }, type: 1 }], `🎮 Tebak Tebakan 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                 delete tebaktebakan[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -437,7 +437,7 @@ Selama ${clockString(new Date - user.afkTime)}
                 let user = global.db.data.users[m.sender]
                 user.afkTime = + new Date
                 user.afkReason = text
-                m.reply(`${m.pushName} Afk\nReason : ${text ? ': ' + text : ''}`)
+                m.reply(`${m.pushName} Telah Afk${text ? ': ' + text : ''}`)
             }
             break	
         case 'ttc': case 'ttt': case 'tictactoe': {
@@ -533,7 +533,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
             }
             break
             case 'sc': {
-                m.reply('Script : https://github.com/DikaArdnt/Hisoka-Morou\n\n Dont Forget Give Star')
+                m.reply('Script : https://github.com/DikaArdnt/Hisoka-Morou\n\n Dont Forget Give Star\n\nDonate : 6281615075793 (Link Aja)\nSaweria : https://saweria.co/DikaArdnt\nPaypal : https://www.paypal.me/Cakhaho\n\n Dont Forget Donate')
             }
             break
             case 'chat': {
@@ -575,21 +575,21 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
             break
 case 'apakah':
 				if (!q) return m.reply(`Penggunaan ${command} text\n\nContoh : ${command} saya wibu`)
-					const apa = ['Iya', 'Tidak', 'Bisa Jadi', 'Betul', 'Gak Tau', 'Hmm...', 'Gk Karna Kamu Burik', 'Pasti' ,'Mungkin', 'Karena Kamu Good looking Saya Jawab *Tidak*', 'Krn Kamu Good looking Saya Jawab *Iya*', 'Y']
+					const apa = ['Iya', 'Tidak', 'Bisa Jadi', 'Betul']
 					const kah = apa[Math.floor(Math.random() * apa.length)]
 hisoka.sendMessage(m.chat, { text: `Pertanyaan : Apakah ${q}\nJawaban : ${kah}` }, { quoted: m })
 
 					break
 case 'bisakah':
 				if (!q) return m.reply(`Penggunaan ${command} text\n\nContoh : ${command} saya wibu`)
-					const bisa = ['Bisa','Gak Bisa','Gak Bisa Ajg Aaokawpk','mungkin','Hooh','Y','Ooh....','YNTKTS','Mending Turu']
+					const bisa = ['Bisa','Gak Bisa','Gak Bisa Ajg Aaokawpk','TENTU PASTI KAMU BISA!!!!']
 					const ga = bisa[Math.floor(Math.random() * bisa.length)]
 hisoka.sendMessage(m.chat, { text: `Pertanyaan : ${q}\nJawaban : ${ga}` }, { quoted: m })
 
 					break
 case 'bagaimanakah':
 				if (!q) return m.reply(`Penggunaan ${command} text\n\nContoh : ${command} saya wibu`)
-					const gimana = ['Gak Gimana2', 'Ya gitu', 'Maaf Bot Tidak Bisa Menjawab', 'Coba Deh Cari Di Gugel','Masa?','Pusing ah','Owhh Begitu:(','Yang Sabar Ya :(','Gimana yeee','Gk Tau','Mending Turu Lagi']
+					const gimana = ['Gak Gimana2', 'Sulit Itu Bro', 'Maaf Bot Tidak Bisa Menjawab', 'Coba Deh Cari Di Gugel','astaghfirallah Beneran???','Pusing ah','Owhh Begitu:(','Yang Sabar Ya Bos:(','Gimana yeee']
 					const ya = gimana[Math.floor(Math.random() * gimana.length)]
 hisoka.sendMessage(m.chat, { text: `Pertanyaan : ${q}\nJawaban : ${ya}` }, { quoted: m })
 
@@ -674,7 +674,7 @@ case 'cekmati':
                     await sleep(60000)
                     if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'TEBAK LAGU' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklagu[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, 'IMV BOT ⫹⫺', m)
+                    hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'TEBAK LAGU' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklagu[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                     delete tebaklagu[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'gambar') {
@@ -687,7 +687,7 @@ case 'cekmati':
                     await sleep(60000)
                     if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'TEBAK GAMBAR' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakgambar[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, 'IMV BOT ⫹⫺', m)
+                    hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'TEBAK GAMBAR' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakgambar[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                     delete tebakgambar[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'kata') {
@@ -700,7 +700,7 @@ case 'cekmati':
                     await sleep(60000)
                     if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'TEBAK KATA' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkata[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, 'IMV BOT ⫹⫺', m)
+                    hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'TEBAK KATA' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkata[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                     delete tebakkata[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'kalimat') {
@@ -713,7 +713,7 @@ case 'cekmati':
                     await sleep(60000)
                     if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'TEBAK KALIMAT' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkalimat[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, 'IMV BOT ⫹⫺', m)
+                    hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'TEBAK KALIMAT' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkalimat[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                     delete tebakkalimat[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'lirik') {
@@ -726,7 +726,7 @@ case 'cekmati':
                     await sleep(60000)
                     if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'TEBAK LIRIK' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklirik[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, 'IMV BOT ⫹⫺', m)
+                    hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'TEBAK LIRIK' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklirik[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                     delete tebaklirik[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'lontong') {
@@ -740,7 +740,7 @@ case 'cekmati':
                     await sleep(60000)
                     if (caklontong.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'TEBAK LONTONG' }, type: 1 }], `Waktu Habis\nJawaban:  ${caklontong[m.sender.split('@')[0]]}\nDeskripsi : ${caklontong_desk[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, 'IMV BOT ⫹⫺', m)
+                    hisoka.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'TEBAK LONTONG' }, type: 1 }], `Waktu Habis\nJawaban:  ${caklontong[m.sender.split('@')[0]]}\nDeskripsi : ${caklontong_desk[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                     delete caklontong[m.sender.split('@')[0]]
 		    delete caklontong_desk[m.sender.split('@')[0]]
                     }
@@ -775,7 +775,7 @@ case 'cekmati':
             let buttons = [
                         { buttonId: 'jodohku', buttonText: { displayText: 'JODOHKU' }, type: 1 }
                     ]
-                    await hisoka.sendButtonText(m.chat, buttons, jawab, 'Imv Bot', m, {mentions: ments})
+                    await hisoka.sendButtonText(m.chat, buttons, jawab, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m, {mentions: ments})
             }
             break
             case 'jadian': {
@@ -790,7 +790,7 @@ case 'cekmati':
             let buttons = [
                         { buttonId: 'jadian', buttonText: { displayText: 'JADIAN' }, type: 1 }
                     ]
-                    await hisoka.sendButtonText(m.chat, buttons, jawab, 'IMV BOT ⫹⫺', m, {mentions: menst})
+                    await hisoka.sendButtonText(m.chat, buttons, jawab, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m, {mentions: menst})
             }
             break
             case 'react': {
@@ -823,13 +823,13 @@ case 'cekmati':
                if (!text) throw `Example : ${prefix + command} packname|author`
           global.packname = text.split("|")[0]
           global.author = text.split("|")[1]
-          m.reply(`Exif berhasil diubah menjadi\n\n❏ Packname : ${global.packname}\n❏ Author : ${global.author}`)
+          m.reply(`Exif berhasil diubah menjadi\n\n♲︎︎︎  Packname : ${global.packname}\n♲︎︎︎  Author : ${global.author}`)
             }
             break
 	case 'kick': {
-		if (!m.isGroup) throw mess.groupp
+		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
-                if (!isCreator) return m.reply(mess.owner)
+                if (!isAdmins) throw mess.admin
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await hisoka.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
@@ -837,7 +837,7 @@ case 'cekmati':
 	case 'add': {
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
-                if (!isCreator) return m.reply(mess.owner)
+                if (!isAdmins) throw mess.admin
 		let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await hisoka.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
@@ -959,7 +959,7 @@ let teks = `══✪〘 *👥 Tag All* 〙✪══
  
  ➲ *Pesan : ${q ? q : 'kosong'}*\n\n`
                 for (let mem of participants) {
-                teks += `❏ @${mem.id.split('@')[0]}\n`
+                teks += `♲︎︎︎  @${mem.id.split('@')[0]}\n`
                 }
                 hisoka.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
                 }
@@ -985,7 +985,7 @@ let teks = `══✪〘 *👥 Tag All* 〙✪══
                 let anu = await styletext(text)
                 let teks = `Srtle Text From ${text}\n\n`
                 for (let i of anu) {
-                    teks += `❏ *${i.name}* : ${i.result}\n\n`
+                    teks += `♲︎︎︎  *${i.name}* : ${i.result}\n\n`
                 }
                 m.reply(teks)
 	    }
@@ -1025,7 +1025,7 @@ let buttonsVote = [
 
             let buttonMessageVote = {
                 text: teks_vote,
-                footer: 'Imv Bot彡',
+                footer: 'ɪᴍᴠ ʙᴏᴛ ☕︎',
                 buttons: buttonsVote,
                 headerType: 1
             }
@@ -1066,7 +1066,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 
             let buttonMessageUpvote = {
                 text: teks_vote,
-                footer: 'IMV BOT ⫹⫺',
+                footer: 'ɪᴍᴠ ʙᴏᴛ ☕︎',
                 buttons: buttonsUpvote,
                 headerType: 1,
                 mentions: menvote
@@ -1108,7 +1108,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 
             let buttonMessageDevote = {
                 text: teks_vote,
-                footer: 'IMV BOT ⫹⫺',
+                footer: 'ɪᴍᴠ ʙᴏᴛ ☕︎',
                 buttons: buttonsDevote,
                 headerType: 1,
                 mentions: menvote
@@ -1152,7 +1152,7 @@ break
             m.reply('Berhasil Menghapus Sesi Vote Di Grup Ini')
 	    }
             break
-               case 'gc': case 'grup': {
+               case 'group': case 'grup': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1165,7 +1165,7 @@ break
                         { buttonId: 'group open', buttonText: { displayText: 'OPEN' }, type: 1 },
                         { buttonId: 'group close', buttonText: { displayText: 'CLOSE' }, type: 1 }
                     ]
-                    await hisoka.sendButtonText(m.chat, buttons, `Mode Group`, 'IMV BOT ⫹⫺', m)
+                    await hisoka.sendButtonText(m.chat, buttons, `Mode Group`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
 
              }
             }
@@ -1183,7 +1183,7 @@ break
                         { buttonId: 'editinfo open', buttonText: { displayText: 'OPEN' }, type: 1 },
                         { buttonId: 'editinfo close', buttonText: { displayText: 'CLOSE' }, type: 1 }
                     ]
-                    await hisoka.sendButtonText(m.chat, buttons, `Mode Edit Info`, 'IMV BOT ⫹⫺', m)
+                    await hisoka.sendButtonText(m.chat, buttons, `Mode Edit Info`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
 
             }
             }
@@ -1205,7 +1205,7 @@ break
                         { buttonId: 'antilink on', buttonText: { displayText: 'ON' }, type: 1 },
                         { buttonId: 'antilink off', buttonText: { displayText: 'OFF' }, type: 1 }
                     ]
-                    await hisoka.sendButtonText(m.chat, buttons, `Mode Antilink`, 'IMV BOT ⫹⫺', m)
+                    await hisoka.sendButtonText(m.chat, buttons, `Mode Antilink`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                 }
              }
              break
@@ -1216,17 +1216,17 @@ break
                 if (args[0] === "on") {
                 if (db.data.chats[m.chat].mute) return m.reply(`Sudah Aktif Sebelumnya`)
                 db.data.chats[m.chat].mute = true
-                m.reply(`${'IMV BOT ⫹⫺'} telah di mute di group ini !`)
+                m.reply(`${'ɪᴍᴠ ʙᴏᴛ ☕︎'} telah di mute di group ini !`)
                 } else if (args[0] === "off") {
                 if (!db.data.chats[m.chat].mute) return m.reply(`Sudah Tidak Aktif Sebelumnya`)
                 db.data.chats[m.chat].mute = false
-                m.reply(`${'IMV BOT ⫹⫺'} telah di unmute di group ini !`)
+                m.reply(`${'ɪᴍᴠ ʙᴏᴛ ☕︎'} telah di unmute di group ini !`)
                 } else {
                  let buttons = [
                         { buttonId: 'mute on', buttonText: { displayText: 'ON' }, type: 1 },
                         { buttonId: 'mute off', buttonText: { displayText: 'OFF' }, type: 1 }
                     ]
-                    await hisoka.sendButtonText(m.chat, buttons, `Mute Bot`, 'IMV BOT ⫹⫺', m)
+                    await hisoka.sendButtonText(m.chat, buttons, `Mute Bot`, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                 }
              }
              break
@@ -1248,7 +1248,7 @@ break
                 }
             }
             break
-            case 'delete': case 'del': case 'd': {
+            case 'delete': case 'del': {
                 if (!m.quoted) throw false
                 let { chat, fromMe, id, isBaileys } = m.quoted
                 if (!isBaileys) throw 'Pesan tersebut bukan dikirim oleh bot!'
@@ -1266,27 +1266,27 @@ break
                     await sleep(1500)
                     let btn = [{
                                  urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
                       let txt = `「 Broadcast Bot 」\n\n${text}`
-                      hisoka.send5ButImg(i, txt, 'IMV BOT彡', global.thumb, btn)
+                      hisoka.send5ButImg(i, txt, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                     }
                 m.reply(`Sukses Mengirim Broadcast Ke ${anu.length} Group`)
             }
@@ -1300,27 +1300,27 @@ break
 		    await sleep(1500)
 		    let btn = [{
                                  urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
                       let txt = `「 Broadcast Bot 」\n\n${text}`
-                      hisoka.send5ButImg(yoi, txt, 'IMV BOT彡', global.thumb, btn)
+                      hisoka.send5ButImg(yoi, txt, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
 		}
 		m.reply('Sukses Broadcast')
             }
@@ -1334,8 +1334,8 @@ break
                     let read = i.readTimestamp
                     let unread = i.receiptTimestamp
                     let waktu = read ? read : unread
-                    teks += `❏ @${i.userJid.split('@')[0]}\n`
-                    teks += ` ┗━❏ *Waktu :* ${moment(waktu * 1000).format('DD/MM/YY HH:mm:ss')} ❏ *Status :* ${read ? 'Dibaca' : 'Terkirim'}\n\n`
+                    teks += `♲︎︎︎  @${i.userJid.split('@')[0]}\n`
+                    teks += ` ┗━♲︎︎︎  *Waktu :* ${moment(waktu * 1000).format('DD/MM/YY HH:mm:ss')} ♲︎︎︎  *Status :* ${read ? 'Dibaca' : 'Terkirim'}\n\n`
                 }
                 hisoka.sendTextWithMentions(m.chat, teks, m)
             }
@@ -1370,7 +1370,7 @@ break
              case 'listonline': case 'liston': {
                     let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat
                     let online = [...Object.keys(store.presences[id]), botNumber]
-                    hisoka.sendText(m.chat, 'List Online:\n\n' + online.map(v => '❏ @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
+                    hisoka.sendText(m.chat, 'List Online:\n\n' + online.map(v => '♲︎︎︎  @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
              }
              break
             case 'sticker': case 's': case 'stickergif': case 'sgif': case 'stiker': {
@@ -1490,7 +1490,7 @@ case 'stext': case 'stickertext': case 'stikertext': {
             let media = await quoted.download()
             let { toAudio } = require('./lib/converter')
             let audio = await toAudio(media, 'mp4')
-            hisoka.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `Convert By ${'IMV BOT彡'}.mp3`}, { quoted : m })
+            hisoka.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `Convert By ${'ɪᴍᴠ ʙᴏᴛ ☕︎'}.mp3`}, { quoted : m })
             }
             break
             case 'tovn': case 'toptt': {
@@ -1560,7 +1560,7 @@ case 'stext': case 'stickertext': case 'stikertext': {
                 let teks = 'YouTube Search\n\n Result From '+text+'\n\n'
                 let no = 1
                 for (let i of search.all) {
-                    teks += `❏ No : ${no++}\n❏ Type : ${i.type}\n❏ Video ID : ${i.videoId}\n❏ Title : ${i.title}\n❏ Views : ${i.views}\n❏ Duration : ${i.timestamp}\n❏ Upload At : ${i.ago}\n❏ Author : ${i.author.name}\n❏ Url : ${i.url}\n\n─────────────────\n\n`
+                    teks += `♲︎︎︎  No : ${no++}\n♲︎︎︎  Type : ${i.type}\n♲︎︎︎  Video ID : ${i.videoId}\n♲︎︎︎  Title : ${i.title}\n♲︎︎︎  Views : ${i.views}\n♲︎︎︎  Duration : ${i.timestamp}\n♲︎︎︎  Upload At : ${i.ago}\n♲︎︎︎  Author : ${i.author.name}\n♲︎︎︎  Url : ${i.url}\n\n─────────────────\n\n`
                 }
                 hisoka.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
             }
@@ -1571,15 +1571,15 @@ case 'stext': case 'stickertext': case 'stikertext': {
                 google({'query': text}).then(res => {
                 let teks = `Google Search From : ${text}\n\n`
                 for (let g of res) {
-                teks += `❏ *Title* : ${g.title}\n`
-                teks += `❏ *Description* : ${g.snippet}\n`
-                teks += `❏ *Link* : ${g.link}\n\n────────────────────────\n\n`
+                teks += `♲︎︎︎  *Title* : ${g.title}\n`
+                teks += `♲︎︎︎  *Description* : ${g.snippet}\n`
+                teks += `♲︎︎︎  *Link* : ${g.link}\n\n────────────────────────\n\n`
                 } 
                 m.reply(teks)
                 })
                 }
                 break
-        case 'gimage': case 'image': {
+        case 'gimage': {
         if (!text) throw `Example : ${prefix + command} kaori cicak`
         let gis = require('g-i-s')
         gis(text, async (error, result) => {
@@ -1593,7 +1593,7 @@ case 'stext': case 'stickertext': case 'stikertext': {
                     caption: `*-------「 GIMAGE SEARCH 」-------*
 🤠 *Query* : ${text}
 🔗 *Media Url* : ${images}`,
-                    footer: 'IMV BOT彡',
+                    footer: 'ɪᴍᴠ ʙᴏᴛ ☕︎',
                     buttons: buttons,
                     headerType: 4
                 }
@@ -1613,17 +1613,17 @@ case 'stext': case 'stickertext': case 'stikertext': {
                 let buttonMessage = {
                     image: { url: anu.thumbnail },
                     caption: `
-❏ Title : ${anu.title}
-❏ Ext : Search
-❏ ID : ${anu.videoId}
-❏ Duration : ${anu.timestamp}
-❏ Viewers : ${anu.views}
-❏ Upload At : ${anu.ago}
-❏ Author : ${anu.author.name}
-❏ Channel : ${anu.author.url}
-❏ Description : ${anu.description}
-❏ Url : ${anu.url}`,
-                    footer: 'IMV BOT彡',
+♲︎︎︎  Title : ${anu.title}
+♲︎︎︎  Ext : Search
+♲︎︎︎  ID : ${anu.videoId}
+♲︎︎︎  Duration : ${anu.timestamp}
+♲︎︎︎  Viewers : ${anu.views}
+♲︎︎︎  Upload At : ${anu.ago}
+♲︎︎︎  Author : ${anu.author.name}
+♲︎︎︎  Channel : ${anu.author.url}
+♲︎︎︎  Description : ${anu.description}
+♲︎︎︎  Url : ${anu.url}`,
+                    footer: 'ɪᴍᴠ ʙᴏᴛ ☕︎',
                     buttons: buttons,
                     headerType: 4
                 }
@@ -1636,7 +1636,7 @@ case 'stext': case 'stickertext': case 'stikertext': {
                 let quality = args[1] ? args[1] : '128kbps'
                 let media = await yta(text, quality)
                 if (media.filesize >= 100000) return m.reply('File Melebihi Batas '+util.format(media))
-                hisoka.sendImage(m.chat, media.thumb, `❏ Title : ${media.title}\n❏ File Size : ${media.filesizeF}\n❏ Url : ${isUrl(text)}\n❏ Ext : MP3\n❏ Resolusi : ${args[1] || '128kbps'}`, m)
+                hisoka.sendImage(m.chat, media.thumb, `♲︎︎︎  Title : ${media.title}\n♲︎︎︎  File Size : ${media.filesizeF}\n♲︎︎︎  Url : ${isUrl(text)}\n♲︎︎︎  Ext : MP3\n♲︎︎︎  Resolusi : ${args[1] || '128kbps'}`, m)
                 hisoka.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
             }
             break
@@ -1646,7 +1646,7 @@ case 'stext': case 'stickertext': case 'stikertext': {
                 let quality = args[1] ? args[1] : '360p'
                 let media = await ytv(text, quality)
                 if (media.filesize >= 100000) return m.reply('File Melebihi Batas '+util.format(media))
-                hisoka.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `❏ Title : ${media.title}\n❏ File Size : ${media.filesizeF}\n❏ Url : ${isUrl(text)}\n❏ Ext : MP3\n❏ Resolusi : ${args[1] || '360p'}` }, { quoted: m })
+                hisoka.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `♲︎︎︎  Title : ${media.title}\n♲︎︎︎  File Size : ${media.filesizeF}\n♲︎︎︎  Url : ${isUrl(text)}\n♲︎︎︎  Ext : MP3\n♲︎︎︎  Resolusi : ${args[1] || '360p'}` }, { quoted: m })
             }
             break
 	    case 'getmusic': {
@@ -1659,7 +1659,7 @@ case 'stext': case 'stickertext': case 'stikertext': {
                 let quality = args[1] ? args[1] : '128kbps'
                 let media = await yta(urls[text - 1], quality)
                 if (media.filesize >= 100000) return m.reply('File Melebihi Batas '+util.format(media))
-                hisoka.sendImage(m.chat, media.thumb, `❏ Title : ${media.title}\n❏ File Size : ${media.filesizeF}\n❏ Url : ${urls[text - 1]}\n❏ Ext : MP3\n❏ Resolusi : ${args[1] || '128kbps'}`, m)
+                hisoka.sendImage(m.chat, media.thumb, `♲︎︎︎  Title : ${media.title}\n♲︎︎︎  File Size : ${media.filesizeF}\n♲︎︎︎  Url : ${urls[text - 1]}\n♲︎︎︎  Ext : MP3\n♲︎︎︎  Resolusi : ${args[1] || '128kbps'}`, m)
                 hisoka.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
             }
             break
@@ -1673,7 +1673,7 @@ case 'stext': case 'stickertext': case 'stikertext': {
                 let quality = args[1] ? args[1] : '360p'
                 let media = await ytv(urls[text - 1], quality)
                 if (media.filesize >= 100000) return m.reply('File Melebihi Batas '+util.format(media))
-                hisoka.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `❏ Title : ${media.title}\n❏ File Size : ${media.filesizeF}\n❏ Url : ${urls[text - 1]}\n❏ Ext : MP3\n❏ Resolusi : ${args[1] || '360p'}` }, { quoted: m })
+                hisoka.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `♲︎︎︎  Title : ${media.title}\n♲︎︎︎  File Size : ${media.filesizeF}\n♲︎︎︎  Url : ${urls[text - 1]}\n♲︎︎︎  Ext : MP3\n♲︎︎︎  Resolusi : ${args[1] || '360p'}` }, { quoted: m })
             }
             break
             case 'pinterest': case 'pin': {
@@ -1681,7 +1681,7 @@ case 'stext': case 'stickertext': case 'stikertext': {
 		let { pinterest } = require('./lib/scraper')
                 anu = await pinterest(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
-                hisoka.sendMessage(m.chat, { image: { url: result }, caption: '❏ Media Url : '+result }, { quoted: m })
+                hisoka.sendMessage(m.chat, { image: { url: result }, caption: '♲︎︎︎  Media Url : '+result }, { quoted: m })
             }
             break
 // Meme
@@ -1694,19 +1694,19 @@ break
 case 'darkjoke': case 'darkjokes': {
 m.reply(mess.wait)
 let anu = await getBuffer(`https://api.zacros.my.id/randomimg/darkjokes`)
-hisoka.sendMessage(m.chat, { image: anu, caption: `Nih..` }, { quoted: m})
+hisoka.sendMessage(m.chat, { image: anu, caption: `Nih  Kak` }, { quoted: m})
 }
 break
 case 'darkmeme': {
 m.reply(mess.wait)
 let anu = await getBuffer(`https://hardianto.xyz/api/darkmeme?apikey=hardianto`)
-hisoka.sendMessage(m.chat, { image: anu, caption: `Nih..` }, { quoted: m})
+hisoka.sendMessage(m.chat, { image: anu, caption: `Nih  Kak` }, { quoted: m})
 }
 break
 case 'memeindo': {
 m.reply(mess.wait)
 let anu = await getBuffer(`https://api.lolhuman.xyz/api/meme/memeindo?apikey=Your Apikey`)
-hisoka.sendMessage(m.chat, { image: anu, caption: `Nih..` }, { quoted: m})
+hisoka.sendMessage(m.chat, { image: anu, caption: `Nih  Kak` }, { quoted: m})
 }
 break
             case 'anime': case 'waifu': case 'husbu': case 'neko': case 'shinobu': case 'megumin': case 'waifus': case 'nekos': case 'trap': case 'blowjob': {
@@ -1729,7 +1729,7 @@ break
                 let buttonMessage = {
                     image: { url: 'https://coffee.alexflipnote.dev/random' },
                     caption: `☕ Random Coffe`,
-                    footer: 'IMV BOT彡',
+                    footer: 'ɪᴍᴠ ʙᴏᴛ ☕︎',
                     buttons: buttons,
                     headerType: 4
                 }
@@ -1746,8 +1746,8 @@ break
                 ]
                 let buttonMessage = {
                     image: { url: result.image[0] },
-                    caption: `❏ Title : ${result.title}\n❏ Category : ${result.type}\n❏ Detail : ${result.source}\n❏ Media Url : ${result.image[2] || result.image[1] || result.image[0]}`,
-                    footer: 'IMV BOT ⫹⫺',
+                    caption: `♲︎︎︎  Title : ${result.title}\n♲︎︎︎  Category : ${result.type}\n♲︎︎︎  Detail : ${result.source}\n♲︎︎︎  Media Url : ${result.image[2] || result.image[1] || result.image[0]}`,
+                    footer: 'ɪᴍᴠ ʙᴏᴛ ☕︎',
                     buttons: buttons,
                     headerType: 4
                 }
@@ -1764,8 +1764,8 @@ break
                 ]
                 let buttonMessage = {
                     image: { url: result.image },
-                    caption: `❏ Title : ${result.title}\n❏ Source : ${result.source}\n❏ Media Url : ${result.image}`,
-                    footer: 'IMV BOT彡',
+                    caption: `♲︎︎︎  Title : ${result.title}\n♲︎︎︎  Source : ${result.source}\n♲︎︎︎  Media Url : ${result.image}`,
+                    footer: 'ɪᴍᴠ ʙᴏᴛ ☕︎',
                     buttons: buttons,
                     headerType: 4
                 }
@@ -1824,14 +1824,14 @@ break
                 if (!Number(text)) throw `Example : ${prefix + command} 6288292024190`
                 let anu = await primbon.nomer_hoki(Number(text))
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Nomor HP :* ${anu.message.nomer_hp}\n❏ *Angka Shuzi :* ${anu.message.angka_shuzi}\n❏ *Energi Positif :*\n- Kekayaan : ${anu.message.energi_positif.kekayaan}\n- Kesehatan : ${anu.message.energi_positif.kesehatan}\n- Cinta : ${anu.message.energi_positif.cinta}\n- Kestabilan : ${anu.message.energi_positif.kestabilan}\n- Persentase : ${anu.message.energi_positif.persentase}\n❏ *Energi Negatif :*\n- Perselisihan : ${anu.message.energi_negatif.perselisihan}\n- Kehilangan : ${anu.message.energi_negatif.kehilangan}\n- Malapetaka : ${anu.message.energi_negatif.malapetaka}\n- Kehancuran : ${anu.message.energi_negatif.kehancuran}\n- Persentase : ${anu.message.energi_negatif.persentase}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Nomor HP :* ${anu.message.nomer_hp}\n♲︎︎︎  *Angka Shuzi :* ${anu.message.angka_shuzi}\n♲︎︎︎  *Energi Positif :*\n- Kekayaan : ${anu.message.energi_positif.kekayaan}\n- Kesehatan : ${anu.message.energi_positif.kesehatan}\n- Cinta : ${anu.message.energi_positif.cinta}\n- Kestabilan : ${anu.message.energi_positif.kestabilan}\n- Persentase : ${anu.message.energi_positif.persentase}\n♲︎︎︎  *Energi Negatif :*\n- Perselisihan : ${anu.message.energi_negatif.perselisihan}\n- Kehilangan : ${anu.message.energi_negatif.kehilangan}\n- Malapetaka : ${anu.message.energi_negatif.malapetaka}\n- Kehancuran : ${anu.message.energi_negatif.kehancuran}\n- Persentase : ${anu.message.energi_negatif.persentase}`, m)
             }
             break
             case 'artimimpi': case 'tafsirmimpi': {
                 if (!text) throw `Example : ${prefix + command} belanja`
                 let anu = await primbon.tafsir_mimpi(text)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Mimpi :* ${anu.message.mimpi}\n❏ *Arti :* ${anu.message.arti}\n❏ *Solusi :* ${anu.message.solusi}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Mimpi :* ${anu.message.mimpi}\n♲︎︎︎  *Arti :* ${anu.message.arti}\n♲︎︎︎  *Solusi :* ${anu.message.solusi}`, m)
             }
             break
             case 'ramalanjodoh': case 'ramaljodoh': {
@@ -1839,7 +1839,7 @@ break
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_jodoh(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Nama Anda :* ${anu.message.nama_anda.nama}\n❏ *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n❏ *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n❏ *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n❏ *Hasil :* ${anu.message.result}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Nama Anda :* ${anu.message.nama_anda.nama}\n♲︎︎︎  *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n♲︎︎︎  *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n♲︎︎︎  *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n♲︎︎︎  *Hasil :* ${anu.message.result}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'ramalanjodohbali': case 'ramaljodohbali': {
@@ -1847,7 +1847,7 @@ break
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_jodoh_bali(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Nama Anda :* ${anu.message.nama_anda.nama}\n❏ *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n❏ *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n❏ *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n❏ *Hasil :* ${anu.message.result}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Nama Anda :* ${anu.message.nama_anda.nama}\n♲︎︎︎  *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n♲︎︎︎  *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n♲︎︎︎  *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n♲︎︎︎  *Hasil :* ${anu.message.result}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'suamiistri': {
@@ -1855,7 +1855,7 @@ break
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.suami_istri(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Nama Suami :* ${anu.message.suami.nama}\n❏ *Lahir Suami :* ${anu.message.suami.tgl_lahir}\n❏ *Nama Istri :* ${anu.message.istri.nama}\n❏ *Lahir Istri :* ${anu.message.istri.tgl_lahir}\n❏ *Hasil :* ${anu.message.result}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Nama Suami :* ${anu.message.suami.nama}\n♲︎︎︎  *Lahir Suami :* ${anu.message.suami.tgl_lahir}\n♲︎︎︎  *Nama Istri :* ${anu.message.istri.nama}\n♲︎︎︎  *Lahir Istri :* ${anu.message.istri.tgl_lahir}\n♲︎︎︎  *Hasil :* ${anu.message.result}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'ramalancinta': case 'ramalcinta': {
@@ -1863,14 +1863,14 @@ break
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_cinta(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Nama Anda :* ${anu.message.nama_anda.nama}\n❏ *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n❏ *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n❏ *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n❏ *Sisi Positif :* ${anu.message.sisi_positif}\n❏ *Sisi Negatif :* ${anu.message.sisi_negatif}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Nama Anda :* ${anu.message.nama_anda.nama}\n♲︎︎︎  *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n♲︎︎︎  *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n♲︎︎︎  *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n♲︎︎︎  *Sisi Positif :* ${anu.message.sisi_positif}\n♲︎︎︎  *Sisi Negatif :* ${anu.message.sisi_negatif}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'artinama': {
                 if (!text) throw `Example : ${prefix + command} Dika Ardianta`
                 let anu = await primbon.arti_nama(text)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Nama :* ${anu.message.nama}\n❏ *Arti :* ${anu.message.arti}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Nama :* ${anu.message.nama}\n♲︎︎︎  *Arti :* ${anu.message.arti}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'kecocokannama': case 'cocoknama': {
@@ -1878,7 +1878,7 @@ break
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.kecocokan_nama(nama, tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Nama :* ${anu.message.nama}\n❏ *Lahir :* ${anu.message.tgl_lahir}\n❏ *Life Path :* ${anu.message.life_path}\n❏ *Destiny :* ${anu.message.destiny}\n❏ *Destiny Desire :* ${anu.message.destiny_desire}\n❏ *Personality :* ${anu.message.personality}\n❏ *Persentase :* ${anu.message.persentase_kecocokan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Nama :* ${anu.message.nama}\n♲︎︎︎  *Lahir :* ${anu.message.tgl_lahir}\n♲︎︎︎  *Life Path :* ${anu.message.life_path}\n♲︎︎︎  *Destiny :* ${anu.message.destiny}\n♲︎︎︎  *Destiny Desire :* ${anu.message.destiny_desire}\n♲︎︎︎  *Personality :* ${anu.message.personality}\n♲︎︎︎  *Persentase :* ${anu.message.persentase_kecocokan}`, m)
             }
             break
             case 'kecocokanpasangan': case 'cocokpasangan': case 'pasangan': {
@@ -1886,7 +1886,7 @@ break
                 let [nama1, nama2] = text.split`|`
                 let anu = await primbon.kecocokan_nama_pasangan(nama1, nama2)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendImage(m.chat,  anu.message.gambar, `❏ *Nama Anda :* ${anu.message.nama_anda}\n❏ *Nama Pasangan :* ${anu.message.nama_pasangan}\n❏ *Sisi Positif :* ${anu.message.sisi_positif}\n❏ *Sisi Negatif :* ${anu.message.sisi_negatif}`, m)
+                hisoka.sendImage(m.chat,  anu.message.gambar, `♲︎︎︎  *Nama Anda :* ${anu.message.nama_anda}\n♲︎︎︎  *Nama Pasangan :* ${anu.message.nama_pasangan}\n♲︎︎︎  *Sisi Positif :* ${anu.message.sisi_positif}\n♲︎︎︎  *Sisi Negatif :* ${anu.message.sisi_negatif}`, m)
             }
             break
             case 'jadianpernikahan': case 'jadiannikah': {
@@ -1894,7 +1894,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.tanggal_jadian_pernikahan(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Tanggal Pernikahan :* ${anu.message.tanggal}\n❏ *karakteristik :* ${anu.message.karakteristik}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Tanggal Pernikahan :* ${anu.message.tanggal}\n♲︎︎︎  *karakteristik :* ${anu.message.karakteristik}`, m)
             }
             break
             case 'sifatusaha': {
@@ -1902,7 +1902,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_usaha_bisnis(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Lahir :* ${anu.message.hari_lahir}\n❏ *Usaha :* ${anu.message.usaha}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Lahir :* ${anu.message.hari_lahir}\n♲︎︎︎  *Usaha :* ${anu.message.usaha}`, m)
             }
             break
             case 'rejeki': case 'rezeki': {
@@ -1910,7 +1910,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.rejeki_hoki_weton(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Lahir :* ${anu.message.hari_lahir}\n❏ *Rezeki :* ${anu.message.rejeki}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Lahir :* ${anu.message.hari_lahir}\n♲︎︎︎  *Rezeki :* ${anu.message.rejeki}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'pekerjaan': case 'kerja': {
@@ -1918,7 +1918,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.pekerjaan_weton_lahir(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Lahir :* ${anu.message.hari_lahir}\n❏ *Pekerjaan :* ${anu.message.pekerjaan}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Lahir :* ${anu.message.hari_lahir}\n♲︎︎︎  *Pekerjaan :* ${anu.message.pekerjaan}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'ramalannasib': case 'ramalnasib': case 'nasib': {
@@ -1926,7 +1926,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.ramalan_nasib(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Analisa :* ${anu.message.analisa}\n❏ *Angka Akar :* ${anu.message.angka_akar}\n❏ *Sifat :* ${anu.message.sifat}\n❏ *Elemen :* ${anu.message.elemen}\n❏ *Angka Keberuntungan :* ${anu.message.angka_keberuntungan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Analisa :* ${anu.message.analisa}\n♲︎︎︎  *Angka Akar :* ${anu.message.angka_akar}\n♲︎︎︎  *Sifat :* ${anu.message.sifat}\n♲︎︎︎  *Elemen :* ${anu.message.elemen}\n♲︎︎︎  *Angka Keberuntungan :* ${anu.message.angka_keberuntungan}`, m)
             }
             break
             case 'potensipenyakit': case 'penyakit': {
@@ -1934,7 +1934,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.cek_potensi_penyakit(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Analisa :* ${anu.message.analisa}\n❏ *Sektor :* ${anu.message.sektor}\n❏ *Elemen :* ${anu.message.elemen}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Analisa :* ${anu.message.analisa}\n♲︎︎︎  *Sektor :* ${anu.message.sektor}\n♲︎︎︎  *Elemen :* ${anu.message.elemen}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'artitarot': case 'tarot': {
@@ -1942,7 +1942,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.arti_kartu_tarot(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendImage(m.chat, anu.message.image, `❏ *Lahir :* ${anu.message.tgl_lahir}\n❏ *Simbol Tarot :* ${anu.message.simbol_tarot}\n❏ *Arti :* ${anu.message.arti}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendImage(m.chat, anu.message.image, `♲︎︎︎  *Lahir :* ${anu.message.tgl_lahir}\n♲︎︎︎  *Simbol Tarot :* ${anu.message.simbol_tarot}\n♲︎︎︎  *Arti :* ${anu.message.arti}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'fengshui': {
@@ -1950,7 +1950,7 @@ break
                 let [nama, gender, tahun] = text.split`,`
                 let anu = await primbon.perhitungan_feng_shui(nama, gender, tahun)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Nama :* ${anu.message.nama}\n❏ *Lahir :* ${anu.message.tahun_lahir}\n❏ *Gender :* ${anu.message.jenis_kelamin}\n❏ *Angka Kua :* ${anu.message.angka_kua}\n❏ *Kelompok :* ${anu.message.kelompok}\n❏ *Karakter :* ${anu.message.karakter}\n❏ *Sektor Baik :* ${anu.message.sektor_baik}\n❏ *Sektor Buruk :* ${anu.message.sektor_buruk}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Nama :* ${anu.message.nama}\n♲︎︎︎  *Lahir :* ${anu.message.tahun_lahir}\n♲︎︎︎  *Gender :* ${anu.message.jenis_kelamin}\n♲︎︎︎  *Angka Kua :* ${anu.message.angka_kua}\n♲︎︎︎  *Kelompok :* ${anu.message.kelompok}\n♲︎︎︎  *Karakter :* ${anu.message.karakter}\n♲︎︎︎  *Sektor Baik :* ${anu.message.sektor_baik}\n♲︎︎︎  *Sektor Buruk :* ${anu.message.sektor_buruk}`, m)
             }
             break
             case 'haribaik': {
@@ -1958,7 +1958,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.petung_hari_baik(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Lahir :* ${anu.message.tgl_lahir}\n❏ *Kala Tinantang :* ${anu.message.kala_tinantang}\n❏ *Info :* ${anu.message.info}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Lahir :* ${anu.message.tgl_lahir}\n♲︎︎︎  *Kala Tinantang :* ${anu.message.kala_tinantang}\n♲︎︎︎  *Info :* ${anu.message.info}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'harisangar': case 'taliwangke': {
@@ -1966,7 +1966,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.hari_sangar_taliwangke(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Lahir :* ${anu.message.tgl_lahir}\n❏ *Hasil :* ${anu.message.result}\n❏ *Info :* ${anu.message.info}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Lahir :* ${anu.message.tgl_lahir}\n♲︎︎︎  *Hasil :* ${anu.message.result}\n♲︎︎︎  *Info :* ${anu.message.info}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'harinaas': case 'harisial': {
@@ -1974,7 +1974,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_hari_naas(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Hari Lahir :* ${anu.message.hari_lahir}\n❏ *Tanggal Lahir :* ${anu.message.tgl_lahir}\n❏ *Hari Naas :* ${anu.message.hari_naas}\n❏ *Info :* ${anu.message.catatan}\n❏ *Catatan :* ${anu.message.info}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Hari Lahir :* ${anu.message.hari_lahir}\n♲︎︎︎  *Tanggal Lahir :* ${anu.message.tgl_lahir}\n♲︎︎︎  *Hari Naas :* ${anu.message.hari_naas}\n♲︎︎︎  *Info :* ${anu.message.catatan}\n♲︎︎︎  *Catatan :* ${anu.message.info}`, m)
             }
             break
             case 'nagahari': case 'harinaga': {
@@ -1982,7 +1982,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.rahasia_naga_hari(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Hari Lahir :* ${anu.message.hari_lahir}\n❏ *Tanggal Lahir :* ${anu.message.tgl_lahir}\n❏ *Arah Naga Hari :* ${anu.message.arah_naga_hari}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Hari Lahir :* ${anu.message.hari_lahir}\n♲︎︎︎  *Tanggal Lahir :* ${anu.message.tgl_lahir}\n♲︎︎︎  *Arah Naga Hari :* ${anu.message.arah_naga_hari}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'arahrejeki': case 'arahrezeki': {
@@ -1990,7 +1990,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_arah_rejeki(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Hari Lahir :* ${anu.message.hari_lahir}\n❏ *tanggal Lahir :* ${anu.message.tgl_lahir}\n❏ *Arah Rezeki :* ${anu.message.arah_rejeki}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Hari Lahir :* ${anu.message.hari_lahir}\n♲︎︎︎  *tanggal Lahir :* ${anu.message.tgl_lahir}\n♲︎︎︎  *Arah Rezeki :* ${anu.message.arah_rejeki}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'peruntungan': {
@@ -1998,7 +1998,7 @@ break
                 let [nama, tgl, bln, thn, untuk] = text.split`,`
                 let anu = await primbon.ramalan_peruntungan(nama, tgl, bln, thn, untuk)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Nama :* ${anu.message.nama}\n❏ *Lahir :* ${anu.message.tgl_lahir}\n❏ *Peruntungan Tahun :* ${anu.message.peruntungan_tahun}\n❏ *Hasil :* ${anu.message.result}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Nama :* ${anu.message.nama}\n♲︎︎︎  *Lahir :* ${anu.message.tgl_lahir}\n♲︎︎︎  *Peruntungan Tahun :* ${anu.message.peruntungan_tahun}\n♲︎︎︎  *Hasil :* ${anu.message.result}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'weton': case 'wetonjawa': {
@@ -2006,7 +2006,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.weton_jawa(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Tanggal :* ${anu.message.tanggal}\n❏ *Jumlah Neptu :* ${anu.message.jumlah_neptu}\n❏ *Watak Hari :* ${anu.message.watak_hari}\n❏ *Naga Hari :* ${anu.message.naga_hari}\n❏ *Jam Baik :* ${anu.message.jam_baik}\n❏ *Watak Kelahiran :* ${anu.message.watak_kelahiran}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Tanggal :* ${anu.message.tanggal}\n♲︎︎︎  *Jumlah Neptu :* ${anu.message.jumlah_neptu}\n♲︎︎︎  *Watak Hari :* ${anu.message.watak_hari}\n♲︎︎︎  *Naga Hari :* ${anu.message.naga_hari}\n♲︎︎︎  *Jam Baik :* ${anu.message.jam_baik}\n♲︎︎︎  *Watak Kelahiran :* ${anu.message.watak_kelahiran}`, m)
             }
             break
             case 'sifat': case 'karakter': {
@@ -2014,7 +2014,7 @@ break
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_karakter_tanggal_lahir(nama, tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Nama :* ${anu.message.nama}\n❏ *Lahir :* ${anu.message.tgl_lahir}\n❏ *Garis Hidup :* ${anu.message.garis_hidup}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Nama :* ${anu.message.nama}\n♲︎︎︎  *Lahir :* ${anu.message.tgl_lahir}\n♲︎︎︎  *Garis Hidup :* ${anu.message.garis_hidup}`, m)
             }
             break
             case 'keberuntungan': {
@@ -2022,7 +2022,7 @@ break
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.potensi_keberuntungan(nama, tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Nama :* ${anu.message.nama}\n❏ *Lahir :* ${anu.message.tgl_lahir}\n❏ *Hasil :* ${anu.message.result}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Nama :* ${anu.message.nama}\n♲︎︎︎  *Lahir :* ${anu.message.tgl_lahir}\n♲︎︎︎  *Hasil :* ${anu.message.result}`, m)
             }
             break
             case 'memancing': {
@@ -2030,7 +2030,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_memancing_ikan(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Tanggal :* ${anu.message.tgl_memancing}\n❏ *Hasil :* ${anu.message.result}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Tanggal :* ${anu.message.tgl_memancing}\n♲︎︎︎  *Hasil :* ${anu.message.result}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'masasubur': {
@@ -2038,7 +2038,7 @@ break
                 let [tgl, bln, thn, siklus] = text.split`,`
                 let anu = await primbon.masa_subur(tgl, bln, thn, siklus)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Hasil :* ${anu.message.result}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Hasil :* ${anu.message.result}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'zodiak': case 'zodiac': {
@@ -2073,14 +2073,14 @@ break
                 
                 let anu = await primbon.zodiak(zodiac)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Zodiak :* ${anu.message.zodiak}\n❏ *Nomor :* ${anu.message.nomor_keberuntungan}\n❏ *Aroma :* ${anu.message.aroma_keberuntungan}\n❏ *Planet :* ${anu.message.planet_yang_mengitari}\n❏ *Bunga :* ${anu.message.bunga_keberuntungan}\n❏ *Warna :* ${anu.message.warna_keberuntungan}\n❏ *Batu :* ${anu.message.batu_keberuntungan}\n❏ *Elemen :* ${anu.message.elemen_keberuntungan}\n❏ *Pasangan Zodiak :* ${anu.message.pasangan_zodiak}\n❏ *Catatan :* ${anu.message.catatan}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Zodiak :* ${anu.message.zodiak}\n♲︎︎︎  *Nomor :* ${anu.message.nomor_keberuntungan}\n♲︎︎︎  *Aroma :* ${anu.message.aroma_keberuntungan}\n♲︎︎︎  *Planet :* ${anu.message.planet_yang_mengitari}\n♲︎︎︎  *Bunga :* ${anu.message.bunga_keberuntungan}\n♲︎︎︎  *Warna :* ${anu.message.warna_keberuntungan}\n♲︎︎︎  *Batu :* ${anu.message.batu_keberuntungan}\n♲︎︎︎  *Elemen :* ${anu.message.elemen_keberuntungan}\n♲︎︎︎  *Pasangan Zodiak :* ${anu.message.pasangan_zodiak}\n♲︎︎︎  *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'shio': {
                 if (!text) throw `Example : ${prefix + command} tikus\n\nNote : For Detail https://primbon.com/shio.htm`
                 let anu = await primbon.shio(text)
                 if (anu.status == false) return m.reply(anu.message)
-                hisoka.sendText(m.chat, `❏ *Hasil :* ${anu.message}`, m)
+                hisoka.sendText(m.chat, `♲︎︎︎  *Hasil :* ${anu.message}`, m)
             }
             break
 	    case 'stalker': case 'stalk': {
@@ -2122,20 +2122,20 @@ break
                     if (!id) throw `No Query username, Example : ${prefix + command} ig cak_haho`
                     let { result: anu } = await fetchJson(api('zenz', '/api/stalker/ig', { username: id }, 'apikey'))
                     if (anu.status == false) return m.reply(anu.result.message)
-                    hisoka.sendMedia(m.chat, anu.caption.profile_hd, '', `❏ Full Name : ${anu.caption.full_name}\n❏ User Name : ${anu.caption.user_name}\n❏ ID ${anu.caption.user_id}\n❏ Followers : ${anu.caption.followers}\n❏ Following : ${anu.caption.following}\n❏ Bussines : ${anu.caption.bussines}\n❏ Profesional : ${anu.caption.profesional}\n❏ Verified : ${anu.caption.verified}\n❏ Private : ${anu.caption.private}\n❏ Bio : ${anu.caption.biography}\n❏ Bio Url : ${anu.caption.bio_url}`, m)
+                    hisoka.sendMedia(m.chat, anu.caption.profile_hd, '', `♲︎︎︎  Full Name : ${anu.caption.full_name}\n♲︎︎︎  User Name : ${anu.caption.user_name}\n♲︎︎︎  ID ${anu.caption.user_id}\n♲︎︎︎  Followers : ${anu.caption.followers}\n♲︎︎︎  Following : ${anu.caption.following}\n♲︎︎︎  Bussines : ${anu.caption.bussines}\n♲︎︎︎  Profesional : ${anu.caption.profesional}\n♲︎︎︎  Verified : ${anu.caption.verified}\n♲︎︎︎  Private : ${anu.caption.private}\n♲︎︎︎  Bio : ${anu.caption.biography}\n♲︎︎︎  Bio Url : ${anu.caption.bio_url}`, m)
 		    db.data.users[m.sender].limit -= 1
                 } else if (type.toLowerCase() == 'npm') {
                     if (!id) throw `No Query username, Example : ${prefix + command} npm scrape-primbon`
                     let { result: anu } = await fetchJson(api('zenz', '/api/stalker/npm', { query: id }, 'apikey'))
                     if (anu.status == false) return m.reply(anu.result.message)
-                    m.reply(`❏ Name : ${anu.name}\n❏ Version : ${Object.keys(anu.versions)}\n❏ Created : ${tanggal(anu.time.created)}\n❏ Modified : ${tanggal(anu.time.modified)}\n❏ Maintainers :\n ${anu.maintainers.map(v => `- ${v.name} : ${v.email}`).join('\n')}\n\n❏ Description : ${anu.description}\n❏ Homepage : ${anu.homepage}\n❏ Keywords : ${anu.keywords}\n❏ Author : ${anu.author.name}\n❏ License : ${anu.license}\n❏ Readme : ${anu.readme}`)
+                    m.reply(`♲︎︎︎  Name : ${anu.name}\n♲︎︎︎  Version : ${Object.keys(anu.versions)}\n♲︎︎︎  Created : ${tanggal(anu.time.created)}\n♲︎︎︎  Modified : ${tanggal(anu.time.modified)}\n♲︎︎︎  Maintainers :\n ${anu.maintainers.map(v => `- ${v.name} : ${v.email}`).join('\n')}\n\n♲︎︎︎  Description : ${anu.description}\n♲︎︎︎  Homepage : ${anu.homepage}\n♲︎︎︎  Keywords : ${anu.keywords}\n♲︎︎︎  Author : ${anu.author.name}\n♲︎︎︎  License : ${anu.license}\n♲︎︎︎  Readme : ${anu.readme}`)
 		    db.data.users[m.sender].limit -= 1
                 } else {
                     m.reply(`Example : ${prefix +command} type id\n\nList Type :\n1. ff (Free Fire)\n2. ml (Mobile Legends)\n3. aov (Arena Of Valor)\n4. cod (Call Of Duty)\n5. pb (point Blank)\n6. ig (Instagram)\n7. npm (https://npmjs.com)`)
                 }
             }
             break
-	        case 'tiktok': case 'tiktoknowm': case 'tt': {
+	        case 'tiktok': case 'tiktoknowm': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
                 let anu = await fetchJson(api('zenz', '/downloader/tiktok', { url: text }, 'apikey'))
@@ -2214,7 +2214,7 @@ break
                 if (!text) throw 'No Query Title'
                 m.reply(mess.wait)
                 let anu = await fetchJson(api('zenz', '/downloader/joox', { query: text }, 'apikey'))
-                let msg = await hisoka.sendImage(m.chat, anu.result.img, `❏ Title : ${anu.result.lagu}\n❏ Album : ${anu.result.album}\n❏ Singer : ${anu.result.penyanyi}\n❏ Publish : ${anu.result.publish}\n❏ Lirik :\n${anu.result.lirik.result}`, m)
+                let msg = await hisoka.sendImage(m.chat, anu.result.img, `♲︎︎︎  Title : ${anu.result.lagu}\n♲︎︎︎  Album : ${anu.result.album}\n♲︎︎︎  Singer : ${anu.result.penyanyi}\n♲︎︎︎  Publish : ${anu.result.publish}\n♲︎︎︎  Lirik :\n${anu.result.lirik.result}`, m)
                 hisoka.sendMessage(m.chat, { audio: { url: anu.result.mp4aLink }, mimetype: 'audio/mpeg', fileName: anu.result.lagu+'.m4a' }, { quoted: msg })
             }
             break
@@ -2222,7 +2222,7 @@ break
                 if (!text) throw 'No Query Title'
                 m.reply(mess.wait)
                 let anu = await fetchJson(api('zenz', '/downloader/soundcloud', { url: isUrl(text)[0] }, 'apikey'))
-                let msg = await hisoka.sendImage(m.chat, anu.result.thumb, `❏ Title : ${anu.result.title}\n❏ Url : ${isUrl(text)[0]}`)
+                let msg = await hisoka.sendImage(m.chat, anu.result.thumb, `♲︎︎︎  Title : ${anu.result.title}\n♲︎︎︎  Url : ${isUrl(text)[0]}`)
                 hisoka.sendMessage(m.chat, { audio: { url: anu.result.url }, mimetype: 'audio/mpeg', fileName: anu.result.title+'.m4a' }, { quoted: msg })
             }
             break
@@ -2265,7 +2265,7 @@ break
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
                 let anu = await fetchJson(api('zenz', '/api/downloader/facebook', { url: text }, 'apikey'))
-                hisoka.sendMessage(m.chat, { video: { url: anu.result.url }, caption: `❏ Title : ${anu.result.title}`}, { quoted: m })
+                hisoka.sendMessage(m.chat, { video: { url: anu.result.url }, caption: `♲︎︎︎  Title : ${anu.result.title}`}, { quoted: m })
             }
             break
 	        case 'pindl': case 'pinterestdl': {
@@ -2287,21 +2287,21 @@ break
 		    let buttonMessage = {
 		        image: { url: anu.author.profilePic },
 			caption: `
-❏ Title : ${anu.title}
-❏ Author : ${anu.author.name}
-❏ Like : ${anu.like}
-❏ Caption : ${anu.caption}
-❏ Url : ${anu.media[0]}
+♲︎︎︎  Title : ${anu.title}
+♲︎︎︎  Author : ${anu.author.name}
+♲︎︎︎  Like : ${anu.like}
+♲︎︎︎  Caption : ${anu.caption}
+♲︎︎︎  Url : ${anu.media[0]}
 Untuk Download Media Silahkan Klik salah satu Button dibawah ini atau masukkan command ytmp3/ytmp4 dengan url diatas
 `,
-			footer: 'IMV BOT ⫹⫺',
+			footer: 'ɪᴍᴠ ʙᴏᴛ ☕︎',
 			buttons,
 			headerType: 4
 		    }
 		    hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
 		} else if (anu.type == 'image') {
 		    anu.media.map(async (url) => {
-		        hisoka.sendMessage(m.chat, { image: { url }, caption: `❏ Title : ${anu.title}\n❏ Author : ${anu.author.name}\n❏ Like : ${anu.like}\n❏ Caption : ${anu.caption}` }, { quoted: m })
+		        hisoka.sendMessage(m.chat, { image: { url }, caption: `♲︎︎︎  Title : ${anu.title}\n♲︎︎︎  Author : ${anu.author.name}\n♲︎︎︎  Like : ${anu.like}\n♲︎︎︎  Caption : ${anu.caption}` }, { quoted: m })
 		    })
 		}
 	    }
@@ -2521,7 +2521,7 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
 				let buttons = [
                     { buttonId: 'start', buttonText: { displayText: 'START' }, type: 1 }
                 ]
-                hisoka.sendButtonText(m.chat, buttons, `\`\`\`Hi ${await hisoka.getName(m.sender)} Welcome To Anonymous Chat\n\nKlik Button Dibawah Ini Untuk Mencari Partner\`\`\``, 'IMV BOT ⫹⫺', m)
+                hisoka.sendButtonText(m.chat, buttons, `\`\`\`Hi ${await hisoka.getName(m.sender)} Welcome To Anonymous Chat\n\nKlik Button Dibawah Ini Untuk Mencari Partner\`\`\``, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
             }
 			break
             case 'keluar': case 'leave': {
@@ -2548,7 +2548,7 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                     let buttons = [
                         { buttonId: 'keluar', buttonText: { displayText: 'STOP' }, type: 1 }
                     ]
-                    await hisoka.sendButtonText(m.chat, buttons, `\`\`\`Kamu Masih Berada Di dalam Sesi Anonymous, Tekan Button Dibawah Ini Untuk Menghentikan Sesi Anonymous Anda\`\`\``, 'IMV BOT ⫹⫺', m)
+                    await hisoka.sendButtonText(m.chat, buttons, `\`\`\`Kamu Masih Berada Di dalam Sesi Anonymous, Tekan Button Dibawah Ini Untuk Menghentikan Sesi Anonymous Anda\`\`\``, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                     throw false
                 }
                 let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
@@ -2557,10 +2557,10 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                         { buttonId: 'next', buttonText: { displayText: 'SKIP' }, type: 1 },
                         { buttonId: 'keluar', buttonText: { displayText: 'STOP' }, type: 1 }
                     ]
-                    await hisoka.sendButtonText(room.a, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, 'IMV BOT ⫹⫺', m)
+                    await hisoka.sendButtonText(room.a, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                     room.b = m.sender
                     room.state = 'CHATTING'
-                    await hisoka.sendButtonText(room.b, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, 'IMV BOT ⫹⫺', m)
+                    await hisoka.sendButtonText(room.b, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                 } else {
                     let id = + new Date
                     this.anonymous[id] = {
@@ -2578,7 +2578,7 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                     let buttons = [
                         { buttonId: 'keluar', buttonText: { displayText: 'STOP' }, type: 1 }
                     ]
-                    await hisoka.sendButtonText(m.chat, buttons, `\`\`\`Mohon Tunggu Sedang Mencari Partner\`\`\``, 'IMV BOT ⫹⫺', m)
+                    await hisoka.sendButtonText(m.chat, buttons, `\`\`\`Mohon Tunggu Sedang Mencari Partner\`\`\``, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                 }
                 break
             }
@@ -2602,10 +2602,10 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                         { buttonId: 'next', buttonText: { displayText: 'SKIP' }, type: 1 },
                         { buttonId: 'keluar', buttonText: { displayText: 'STOP' }, type: 1 }
                     ]
-                    await hisoka.sendButtonText(room.a, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, 'IMV BOT ⫹⫺', m)
+                    await hisoka.sendButtonText(room.a, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                     room.b = m.sender
                     room.state = 'CHATTING'
-                    await hisoka.sendButtonText(room.b, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, 'IMV BOT ⫹⫺', m)
+                    await hisoka.sendButtonText(room.b, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                 } else {
                     let id = + new Date
                     this.anonymous[id] = {
@@ -2623,7 +2623,7 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                     let buttons = [
                         { buttonId: 'keluar', buttonText: { displayText: 'STOP' }, type: 1 }
                     ]
-                    await hisoka.sendButtonText(m.chat, buttons, `\`\`\`Mohon Tunggu Sedang Mencari Partner\`\`\``, 'IMV BOT ⫹⫺', m)
+                    await hisoka.sendButtonText(m.chat, buttons, `\`\`\`Mohon Tunggu Sedang Mencari Partner\`\`\``, 'ɪᴍᴠ ʙᴏᴛ ☕︎', m)
                 }
                 break
             }
@@ -2686,8 +2686,8 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 m.reply(respon)
             }
             break
-case  'runtime': case 'uptime': case 'run': {
-	m.reply(`*Bot Telah On Selama☕* : ${runtime(process.uptime())}`)
+case  'runtime': {
+	m.reply(`Bot Telah On Selama : ${runtime(process.uptime())}`)
 	}
 	break
 case 'bot': {
@@ -2695,64 +2695,12 @@ case 'bot': {
 	}
 	break
 case 'hai': {
-	m.reply(`Hai...👋`)
+	m.reply(`Hai Kak👋`)
 	}
 	break
 case 'assalamualaikum': {
 	m.reply(`Waalaikumsalam`)
 	}
-	break
-case 'Kontol': case 'Asu': case 'Memek': case 'Goblok': case 'Tolol': {
-	m.reply(`🗿`)
-	}
-	break
-case 'Save': case 'Sv': {
-      m.reply(`Maaf ,Ini Adalah Bot WhatsApp,Tidak Menerima Save Kontak`)
-	}
-	break
-case 'grup --help' : {
-      m.reply(`⫹⫺ *Grup --help* 
-
-➪ *Link grup*\nBerfungsi Untuk Menampilkan/Mengambil Link Pada Sebuah Grup dengan command : *#linkgrup*
-
-➪ *Ephemeral*\nUntuk Mengaktifkan Pesan Sementara\nDengan Command : *#Ephemeral* [on/off] / [enable/disable]
-
-➪ *Setppgc*\nUntuk mengubah Foto/Icon Grup\nCommand : *#setppgc 'panjang'*\n[kata 'panjang' berfungsi untuk memasang Foto dengan ukuran 9:16 Full]
-
-➪ *Setname*\nUntuk Mengubah Nama Grup\nCommand : *#setname (text)*
-
-➪ *Setdesc*\nUntuk Mengatur Deskripsi Grup\command : *#setdesc (text)*
-
-➪ *Group*\nUntuk Mengizin Kan Siapa Yang Dapat Mengirim Pesan Di Grup [Admin/Semua Peserta]\nCommand : *#grup* [open/close] , *#gc* [open/close]
-
-➪ *Editinfo*\nUntuk Mengatur Hanya Admin Atau Semua Peserta Yang Dapat Mengubah Deskripsi Grup\Command : *#editinfo [open/close]\nOpen Untuk *Semua Peserta* ,Close Untuk *Hanya Admin*
-
-➪ *add*\Untuk Menambahkan Nomor Ke Grup\Info : Hanya Owner Yang Dapat Menggunakan,Karena jika Semua Peserta /Admin ,Bisa Mengakibatkan Nomor Bot Kena Banned/Pelanggaran\Command : *#add 628xxxx*
-
-➪ *Kick\Untuk Mengeluarkan Anggota Dari Grup\Info : Hanya Owner Yang Dapat Menggunakan,Karena jika Semua Peserta /Admin ,Bisa Mengakibatkan Nomor Bot Kena Banned/Pelanggaran\nCommand : *#kick 628xxxx/ tag*
-
-➪ *Hidetag*\Ini Adalah Perintah Untuk Tag Semua Anggota Grup,Namun Hanya Berupa Teks Kosong\Command : *#hidetag* , *#h*
-
-➪ *TagAll*\Untuk Tag Semua Anggota Grup Dengan Di Tag 1 per 1 Dan Terlihat\Command : *#tagall*
-
-➪ *Antilink*\Untuk Menjaga Grup Dari Link Grup Lain,Jika Ada Link Grup Lain Akan Otomatis Di Kick Oleh Bot\Command : *#antilink [on/off] / [enable/disable]
-
-➪ *Mute*\Membuat Bot Tidak Respon\Command : *#mute*
-
-➪ *Promote*\Menjadikan Seseorang di grup menjadi Admin*/Command : *#promote @tag user*
-
-➪ *Demote*\Menurunkan Posisi Admin Menjadi Member Biasa\Command : *#demote @tag user*
-
-➪ *Vote*\nMelukan Voting Setuju Atau Tidak\nCommand : *#vote [text]*
-
-➪ *Devote*\nTidak Sejutu\Info : Hanya Dapat Digunakan Jika Ada Voting
-
-➪ *Upvote*\nSejutu
-
-➪ *Cekvote*\nUntuk Cek Sudah Berapa Orang Yang Setuju/Tidak
-
-➪ *Hapusvote*\bUntuk Hapus Voting`)
-      }
 	break
 case 'listv': case 'menuvirtexS404': {
                 hisoka.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/87b77b792df30c6176315.jpg' }, caption: `┬────────────┈ ❖
@@ -2763,28 +2711,15 @@ case 'listv': case 'menuvirtexS404': {
             }
             break
 case 'Virtex-1': {
-                hisoka.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/87b77b792df30c6176315.jpg' }, caption: `*๒๒๒๒๒๒๒๒* *๑๑๑๑๑๑๑๑*
-*๒๒๒๒๒๒๒๒* *๒๒๒๒๒๒๒๒*
-*๑๑๑๑๑๑๑๑* *๒๒๒๒๒๒๒๒*
-*๒๒๒๒๒๒๒๒* *๑๑๑๑๑๑๑๑*
-*_~<[kolaborasi.com]>~_*
-*⬤ ⃢͓̽⃟͓̽ཷ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧ ⃢͓̽⃟͓̽ཷ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧ*��* ᴠ.➊➋ঔৣ͜͡𓃵⃟🥶࿐⁩ *⚘᭫ː͜͡✿⃝⃟݊ᤢོ۪🇮🇩ོོ͓̽⃟͓̽ཷ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧ ⃢͓̽⃟͓̽ཷ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧ ⃢🌹೩ོ0ོ೩ོ ɩȿạɩɾ.com*
-*୧୧୧୧୧୧୧୧* ୪୪୪୪୪୪୪୪* *୨୨୨୨୨୨୨୨*
-*୧୧୧୧୧୧୧୧* ୪୪୪୪୪୪୪୪* *୨୨୨୨୨୨୨୨*
-*୧୧୧୧୧୧୧୧* ୪୪୪୪୪୪୪୪* *୨୨୨୨୨୨୨୨*
-*୧୧୧୧୧୧୧୧* ୪୪୪୪୪୪୪୪* *୨୨୨୨୨୨୨୨*
-*୧୧୧୧୧୧୧୧* ୪୪୪୪୪୪୪୪* *୨୨୨୨୨୨୨୨*
-*୧୧୧୧୧୧୧୧* ୪୪୪୪୪୪୪୪* *୨୨୨୨୨୨୨୨*
-🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟
-*⚘᭫ː͜͡✿⃝⃟݊ᤢོ۪🇮🇩ོོ͓̽⃟͓̽ཷ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧ ⃢͓̽⃟͓̽ཷ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧ ⃢⬤ ⃢͓̽⃟͓̽ཷ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧ ⃢͓̽⃟͓̽ཷ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧ��* ~*li鬒҈҈҉響҉҈ᬵ᬴鬒҈҉҈響҈҉ݜݼ響҉҈҉鬒҈҉ݜᬵ響҉҈鬒҈҉᬴ᬵ.li*~~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷*⚘᭫ː͜͡✿⃝⃟݊ᤢོ۪🇮🇩ོོ͓̽⃟͓̽ཷ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧ ⃢͓̽⃟͓̽ཷ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧ ⃢⬤ ⃢͓̽⃟͓̽ཷ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧ ⃢͓̽⃟͓̽ཷ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ึ͓̽ࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧࣧ��* ~*li鬒҈҈҉響҉҈ᬵ᬴鬒҈҉҈響҈҉ݜݼ響҉҈҉鬒҈҉ݜᬵ響҉҈鬒҈҉᬴ᬵ.li*~~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷.li*~ ~*li𝀷𝀫𝀲𝀭𝀷𝀲𝁅𝀷` }, { quoted: m })
+                hisoka.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/87b77b792df30c6176315.jpg' }, caption: `~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~~_*@94786859370*_~ ~_*@6282189885009*_~ ~_*@62895338123500*_~ ~_*@6285866316854*_~ ~_*@201159634926*_~ ~_*@201158302336*_~ ~_*@6285348244140*_~ ~_*@6288212643727*_~ ~_*@6289604529240*_~ ~_*@923188794545*_~ ~_*@6282350181384*_~ ~_*@18655686614*_~ ~_*@6289519370667*_~ ~_*@60128617298*_~ ~_*@6283878849138*_~ ~_*@917400393728*_~ ~_*@2348170397144*_~ ~_*@6285730888458*_~ ~_*@6285895467588*_~ ~_*@994404688405*_~ ~_*@2347063484826*_~ ~_*@6287723518101*_~ ~_*@15402995426*_~ ~_*@923063049568*_~ ~_*@918607935816*_~ ~_*@6282351749689*_~ ~_*@94770576656*_~ ~_*@6283893040355*_~ ~_*@6285811422081*_~ ~_*@6285296476144*_~ ~_*@6281293580373*_~ ~_*@62895374180203*_~ ~` }, { quoted: m })
             }
             break
 case 'virtex-2': {
                 hisoka.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/87b77b792df30c6176315.jpg' }, caption: `𓊑𓀦𓀗𓀦𓀗𓊑ؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝.⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙ุᡃᡃᡃᡃᡃᡃᡃᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ<\ 𝕿𝖘𝖚𝖐𝖆𝖘𝖆͜͡ 𝕮𝖍𝖆𝖓.々ʹ⁩𝜘͢͢ۦོ͢⇣͢✰͢ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝.⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙ุᡃᡃᡃᡃᡃᡃᡃᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ✘͢͢ۦོ͢⇣͢✰͢↬✘͢͢ۦོ͢⇣͢✰͢↬❂⃢⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟͓͓͓͓͓͓͓͓͓̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽͊͊͊❂❂⃟⃢͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟❂⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟❂⃢⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓̽̽̽̽̽̽̽̽̽̽̽❂⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟❂⃢⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟͓͓͓͓͓͓͓͓͓̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽͊͊͊❂❂⃟⃢͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟❂⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟✘͢͢ۦོ͢⇣͢✰͢↬<\ 𝕿𝖘𝖚𝖐𝖆𝖘𝖆͜͡ 𝕮𝖍𝖆𝖓.々ʹ⁩𝜘͢͢ۦོ͢⇣͢✰͢𓊑𓀦𓀗𓀦𓀗𓊑ؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝𓊑𓀦𓀗𓀦𓀗𓊑ؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝.⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙ุᡃᡃᡃᡃᡃᡃᡃᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ<\ 𝕿𝖘𝖚𝖐𝖆𝖘𝖆͜͡ 𝕮𝖍𝖆𝖓.々ʹ⁩𝜘͢͢ۦོ͢⇣͢✰͢ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝.⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙⃙ุᡃᡃᡃᡃᡃᡃᡃᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ✘͢͢ۦོ͢⇣͢✰͢↬✘͢͢ۦོ͢⇣͢✰͢↬❂⃢⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟͓͓͓͓͓͓͓͓͓̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽͊͊͊❂❂⃟⃢͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟❂⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟❂⃢⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓̽̽̽̽̽̽̽̽̽̽̽❂⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟❂⃢⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟͓͓͓͓͓͓͓͓͓̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽͊͊͊❂❂⃟⃢͓͓͓͓͓͓͓͓͓͓͓͓͓͓͓̽̽̽̽̽̽̽̽̽̽̽̽̽̽̽⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟❂⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟⃟✘͢͢ۦོ͢⇣͢✰͢↬<\ 𝕿𝖘𝖚𝖐𝖆𝖘𝖆͜͡ 𝕮𝖍𝖆𝖓.々ʹ⁩𝜘͢͢ۦོ͢⇣͢✰͢𓊑𓀦𓀗𓀦𓀗𓊑ؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖؖᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶̶⃙⃙⃙⃙⃙⃚⃚⃚⃚⃚⃫⃫⃫⃫⃫.̶̶̶̶⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝⃝⃝⃝⃝⃝⃝⃝⃝⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝ᡃ⃝` }, { quoted: m })
             }
             break
-case 'virtex-3': {
-                hisoka.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/87b77b792df30c6176315.jpg' }, caption: `1234567890🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ░▒▓█▇▆▅▄▃▂🔴▂▃▄▅▆▇█▓▒░ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟ᡃ⃟0987654321` }, { quoted: m })
+case 'qris': {
+                hisoka.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/077e91ae0b71d4c9d3653.jpg' }, caption: `QRIS ALL PAYMENT` }, { quoted: m })
             }
             break
 case 'api': case 'apikey': {
@@ -2813,14 +2748,14 @@ let btn = [{
                                 },{
                                 	quickReplyButton: {
                                     displayText: 'Owner',
-                                    id: 'owner'
+                                    id: 'owneri'
                                 }
                             }]
-                hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
             }
             break
 case 'sewabot': {
-	anu = `╭──「 *_SEWA BOT BY IMV BOT ⫹⫺_* 」
+	anu = `╭──「 *_SEWA BOT BY ɪᴍᴠ ʙᴏᴛ ☕︎_* 」
 │❏ ➪ _1 MINGGU : 1K_
 │❏ ➪ _1 BULAN : 5K_
 │❏ ➪ _PERMANEN : 10k_
@@ -2840,77 +2775,55 @@ case 'sewabot': {
 ╰────`
               let btn = [{
                                 quickReplyButton: {
-                                    displayText: 'List Menu',
-                                    id: 'command'
+                                    displayText: 'GOPAY',
+                                    id: 'gopay'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Owner',
-                                    id: 'owner'
+                                    displayText: 'DANA',
+                                    id: 'dana'
                                 }
                                 }, {
                                 	quickReplyButton: {
-                                    displayText: 'Runtime',
-                                    id: 'runtime'
+                                    displayText: 'QRIS ALL PAYMENT',
+                                    id: 'qris'
                                     }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'ɩȿạɩɾ.com', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'Tekan Tombol Dibawah Untuk Memunculkan Kode QR', global.thumb, btn)
                      }
             break
-  case 'menu': case 'panel': {
-	anu = `┌─❖
-│「 IMV BOTZ 」
-└┬❖ 「 ʜᴀɪ ${pushname} 」
-┌┤✑  ꜱᴇʟᴀᴍᴀᴛ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ʙᴏᴛ 🤖
-│└────────────┈ ❖
-│
-└─「 ɪɴꜰᴏ ʙᴏᴛ 」       
-│Prefix : ( ${prefix} )
-│Name : ${global.namabot}\n│ Owner : ${global.namaowner}
-│Mode : ${hisoka.public ? 'Public' : 'Self'}
-│Runtime : ${runtime(process.uptime())}
-│Lib : Baileys Multi Device
-│
-└─「 IMV BOT BY IMV TEAM 」
-│ 
-└┬─────────┈ ❖
-   │❖  Bot Number : https://wa.me/6282350496532
-   │❖  Owner Number : https://wa.me/6282252285143
-   │❖  GC : https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ
-   └─────────────┈ ❖
-   │❖  Silahkan Pilih 
-   │❖  Button Di Bawah
-   └─────────────┈ ❖`
+  case 'menu': {
+	anu = `ʜᴀɪ ${pushname}\n\nɪɴɪ ᴀᴅᴀʟᴀʜ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʏᴀɴɢ ᴍᴇᴍᴀᴋᴀɪ ᴘʀᴏɢʀᴀᴍ ᴍᴜʟᴛɪ ᴅᴇᴠɪᴄᴇ ʙᴇᴛᴀ ᴅᴀʀɪ ᴡʜᴀᴛsᴀᴘᴘ\n\nᴊɪᴋᴀ ᴀᴅᴀ ᴍᴇɴᴜ ᴇʀʀᴏʀ ᴀᴛᴀᴜ ʙᴜɢ ᴍᴇɴᴜ sᴇɢᴇʀᴀ ʟᴀᴘᴏʀ ᴏᴡɴᴇʀ ᴜɴᴛᴜᴋ ᴅɪ ғɪx\n\𝒕𝒆𝒓𝒊𝒎𝒂 𝒌𝒂𝒔𝒊𝒉`
               let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, '© IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, '© ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
             case 'command':{
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
-                    title: `Hi ${pushname}\n┌──⫹⫺ 「 INFO USER 」⫹⫺\n│\n│ Nama : ${pushname}\n│ Nomor : ${m.sender.split('@')[0]}\n│ Status : ${isCreator ? 'Owner' : 'User'}\n│\n└───────⫹⫺\n\n┌──⫹⫺ 「 INFO BOT 」⫹⫺\n│\n│ Prefix : ( ${prefix} )\n│ Nama : ${global.namabot}\n│ Owner : ${global.namaowner}\n│ Mode : ${hisoka.public ? 'Public' : 'Self'}\n│ Runtime : ${runtime(process.uptime())}\n│ Lib : Baileys Multi Device\n│\n└───────⫹⫺`,
+                    title: `Hi ${pushname}\n┌──♲︎ 「 INFO USER 」♲︎\n│\n│ Nama : ${pushname}\n│ Nomor : ${m.sender.split('@')[0]}\n│ Status : ${isCreator ? 'Owner' : 'User'}\n│\n└───────♲︎\n\n┌──♲︎ 「 INFO BOT 」♲︎\n│\n│ Prefix : ( ${prefix} )\n│ Nama : ${global.namabot}\n│ Owner : ${global.namaowner}\n│ Mode : ${hisoka.public ? 'Public' : 'Self'}\n│ Runtime : ${runtime(process.uptime())}\n│ Lib : Baileys Multi Device\n│\n└───────♲︎`,
                     description: "\n",
-                    buttonText: "Pilih Ini Banh 🤖",
+                    buttonText: "ᴘɪʟɪʜ ɪɴɪ ʙᴀɴʜ",
                     footerText: "Silahkan Klik Tombol Dibawah Ini Untuk Menampilkan Menu",
                     listType: "SINGLE_SELECT",
                     sections: [{
@@ -3073,336 +2986,370 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             break
 
 case 'allmenu': {
-                anu = `Hai 👋 ${pushname} *Selamat Menggunakan IMV BOT*
+                anu = `Hai Kak ${pushname}
                 
-                
-┏━━━━⫹⫺ *Group Menu* 
-┃
-┃❏ ${prefix}ephemeral *option*
-┃❏ ${prefix}linkgroup 
-┃❏ ${prefix}setppgc 'panjang' *image*
-┃❏ ${prefix}setname *textname*
-┃❏ ${prefix}setdesc *text*
-┃❏ ${prefix}group *open/close*
-┃❏ ${prefix}editinfo *option*
-┃❏ ${prefix}add @user *Khusus Owner*
-┃❏ ${prefix}kick @user *Khusus Owner*
-┃❏ ${prefix}hidetag [text]
-┃❏ ${prefix}tagall [text]
-┃❏ ${prefix}antilink [on/off]
-┃❏ ${prefix}mute [on/off]
-┃❏ ${prefix}promote @user
-┃❏ ${prefix}demote @user
-┃❏ ${prefix}vote [text]
-┃❏ ${prefix}devote
-┗━━━━━━━━━━━━━━⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
+│
+│ ᴘʀᴇғɪx : ( ${prefix} )
+│ ɴᴀᴍᴇ : ${global.namabot}\n│ Owner : ${global.namaowner}
+│ ᴍᴏᴅᴇ : ${hisoka.public ? 'Public' : 'Self'}
+│ ʀᴜɴᴛɪᴍᴇ : ${runtime(process.uptime())}
+│ ʟɪʙ : Baileys Multi Device
+│
+└───────♲︎
 
-┏━━━━⫹⫺ *Search Menu* 
-┃
-┃❏ ${prefix}play [query]
-┃❏ ${prefix}yts [query]
-┃❏ ${prefix}google [query]
-┃❏ ${prefix}gimage [query]
-┃❏ ${prefix}pinterest [query]
-┃❏ ${prefix}wallpaper [query]
-┃❏ ${prefix}wikimedia [query]
-┃❏ ${prefix}ytsearch [query]
-┃❏ ${prefix}ringtone [query]
-┃❏ ${prefix}stalk [option] [query]
-┗━━━━━━━━━━━━━━⫹⫺
+┌──♲︎ *GROUP MENU*
+│
+│♲︎︎︎  ${prefix}linkgroup
+│♲︎︎︎  ${prefix}ephemeral [option]
+│♲︎︎︎  ${prefix}setppgc [image]
+│♲︎︎︎  ${prefix}setname [text]
+│♲︎︎︎  ${prefix}setdesc [text]
+│♲︎︎︎  ${prefix}group [option]
+│♲︎︎︎  ${prefix}editinfo [option]
+│♲︎︎︎  ${prefix}add @user
+│♲︎︎︎  ${prefix}kick @user
+│♲︎︎︎  ${prefix}hidetag [text]
+│♲︎︎︎  ${prefix}tagall [text]
+│♲︎︎︎  ${prefix}antilink [on/off]
+│♲︎︎︎  ${prefix}mute [on/off]
+│♲︎︎︎  ${prefix}promote @user
+│♲︎︎︎  ${prefix}demote @user
+│♲︎︎︎  ${prefix}vote [text]
+│♲︎︎︎  ${prefix}devote
+│♲︎︎︎  ${prefix}upvote
+│♲︎︎︎  ${prefix}cekvote
+│♲︎︎︎  ${prefix}hapusvote
+│
+└───────♲︎
 
-┏━━━━━⫹⫺ *Download Menu* 
-┃
-┃❏ ${prefix}tiktoknowm [url]
-┃❏ ${prefix}tiktokwm [url]
-┃❏ ${prefix}tiktokmp3 [url]
-┃❏ ${prefix}instagram [url]
-┃❏ ${prefix}twitter [url]
-┃❏ ${prefix}twittermp3 [url]
-┃❏ ${prefix}facebook [url]
-┃❏ ${prefix}pinterestdl [url]
-┃❏ ${prefix}ytmp3 [url]
-┃❏ ${prefix}ytmp4 [url]
-┃❏ ${prefix}getmusic [query]
-┃❏ ${prefix}getvideo [query]
-┃❏ ${prefix}umma [url]
-┃❏ ${prefix}joox [query]
-┃❏ ${prefix}soundcloud [url]
-┗━━━━━━━━━━━━━━⫹⫺
+┌──♲︎ *DOWNLOAD MENU*
+│
+│♲︎︎︎  ${prefix}tiktoknowm [url]
+│♲︎︎︎  ${prefix}tiktokwm [url]
+│♲︎︎︎  ${prefix}tiktokmp3 [url]
+│♲︎︎︎  ${prefix}instagram [url]
+│♲︎︎︎  ${prefix}twitter [url]
+│♲︎︎︎  ${prefix}twittermp3 [url]
+│♲︎︎︎  ${prefix}facebook [url]
+│♲︎︎︎  ${prefix}pinterestdl [url]
+│♲︎︎︎  ${prefix}ytmp3 [url]
+│♲︎︎︎  ${prefix}ytmp4 [url]
+│♲︎︎︎  ${prefix}getmusic [query]
+│♲︎︎︎  ${prefix}getvideo [query]
+│♲︎︎︎  ${prefix}umma [url]
+│♲︎︎︎  ${prefix}joox [query]
+│♲︎︎︎  ${prefix}soundcloud [url]
+│
+└───────♲︎
 
-┏━━━━━⫹⫺ *Meme Menu* 
-┃
-┃❏ ${prefix}memeindo
-┃❏ ${prefix}meme
-┃❏ ${prefix}darkjoke
-┃❏ ${prefix}darkmeme
-┗━━━━━━━━━━━━━━⫹⫺
+┌──♲︎ *MEME MENU*
+│
+│♲︎︎︎  ${prefix}meme
+│♲︎︎︎  ${prefix}memeindo
+│♲︎︎︎  ${prefix}darkjoke
+│♲︎︎︎  ${prefix}darkmeme
+│
+└───────♲︎
 
-┏━━━━━⫹⫺ *Random Menu* 
-┃
-┃❏ ${prefix}coffe
-┃❏ ${prefix}quotesanime
-┃❏ ${prefix}dilanquote
-┃❏ ${prefix}motivasi
-┃❏ ${prefix}bucinquote
-┃❏ ${prefix}katasenja
-┃❏ ${prefix}puisi
-┃❏ ${prefix}couple
-┃❏ ${prefix}anime
-┃❏ ${prefix}waifu
-┃❏ ${prefix}husbu
-┃❏ ${prefix}neko
-┃❏  ${prefix}shinobu
-┗━━━━━━━━━━━━━━⫹⫺
+┌──♲︎ *SEARCH MENU*
+│
+│♲︎︎︎  ${prefix}play [query]
+│♲︎︎︎  ${prefix}yts [query]
+│♲︎︎︎  ${prefix}google [query]
+│♲︎︎︎  ${prefix}gimage [query]
+│♲︎︎︎  ${prefix}pinterest [query]
+│♲︎︎︎  ${prefix}wallpaper [query]
+│♲︎︎︎  ${prefix}wikimedia [query]
+│♲︎︎︎  ${prefix}ytsearch [query]
+│♲︎︎︎  ${prefix}ringtone [query]
+│♲︎︎︎  ${prefix}stalk [option] [query]
+│
+└───────♲︎
 
-┏━━━━━⫹⫺ *Text Pro Menu* 
-┃
-┃❏ ${prefix}3dchristmas
-┃❏ ${prefix}3ddeepsea
-┃❏ ${prefix}americanflag
-┃❏ ${prefix}3dscifi
-┃❏ ${prefix}3drainbow
-┃❏ ${prefix}3dwaterpipe
-┃❏ ${prefix}halloweenskeleton
-┃❏ ${prefix}sketch
-┃❏ ${prefix}bluecircuit
-┃❏ ${prefix}space
-┃❏ ${prefix}metallic
-┃❏ ${prefix}fiction
-┃❏ ${prefix}greenhorror
-┃❏ ${prefix}transformer
-┃❏ ${prefix}berry
-┃❏ ${prefix}thunder
-┃❏ ${prefix}magma
-┃❏ ${prefix}3dcrackedstone
-┃❏ ${prefix}3dneonlight
-┃❏ ${prefix}impressiveglitch
-┃❏ ${prefix}naturalleaves
-┃❏ ${prefix}fireworksparkle
-┃❏ ${prefix}matrix
-┃❏ ${prefix}dropwater
-┃❏ ${prefix}foggywindow
-┃❏ ${prefix}neondevils
-┃❏ ${prefix}christmasholiday
-┃❏ ${prefix}3dgradient
-┃❏ ${prefix}blackpink
-┃❏ ${prefix}gluetext
-┗━━━━━━━━━━━━━━⫹⫺
+┌──♲︎ *RANDOM MENU*
+│
+│♲︎︎︎  ${prefix}coffe
+│♲︎︎︎  ${prefix}quotesanime
+│♲︎︎︎  ${prefix}motivasi
+│♲︎︎︎  ${prefix}dilanquote
+│♲︎︎︎  ${prefix}bucinquote
+│♲︎︎︎  ${prefix}katasenja
+│♲︎︎︎  ${prefix}puisi
+│♲︎︎︎  ${prefix}couple
+│♲︎︎︎  ${prefix}anime
+│♲︎︎︎  ${prefix}waifu
+│♲︎︎︎  ${prefix}husbu
+│♲︎︎︎  ${prefix}neko
+│♲︎︎︎  ${prefix}shinobu
+│♲︎︎︎  ${prefix}waifus (nsfw)
+│♲︎︎︎  ${prefix}nekos (nsfw)
+│♲︎︎︎  ${prefix}trap (nsfw)
+│♲︎︎︎  ${prefix}blowjob (nsfw)
+│
+└───────♲︎
 
-┏━━━━━⫹⫺ *Photo Oxy Menu* 
-┃
-┃❏ ${prefix}shadow
-┃❏ ${prefix}romantic
-┃❏ ${prefix}smoke
-┃❏ ${prefix}burnpapper
-┃❏ ${prefix}naruto
-┃❏ ${prefix}lovemsg
-┃❏ ${prefix}grassmsg
-┃❏ ${prefix}lovetext
-┃❏ ${prefix}coffecup
-┃❏ ${prefix}butterfly
-┃❏ ${prefix}harrypotter
-┃❏ ${prefix}retrolol
-┗━━━━━━━━━━━━━━⫹⫺
+┌──♲︎ *TEXT PRO MENU*
+│
+│♲︎︎︎  ${prefix}3dchristmas
+│♲︎︎︎  ${prefix}3ddeepsea
+│♲︎︎︎  ${prefix}americanflag
+│♲︎︎︎  ${prefix}3dscifi
+│♲︎︎︎  ${prefix}3drainbow
+│♲︎︎︎  ${prefix}3dwaterpipe
+│♲︎︎︎  ${prefix}halloweenskeleton
+│♲︎︎︎  ${prefix}sketch
+│♲︎︎︎  ${prefix}bluecircuit
+│♲︎︎︎  ${prefix}space
+│♲︎︎︎  ${prefix}metallic
+│♲︎︎︎  ${prefix}fiction
+│♲︎︎︎  ${prefix}greenhorror
+│♲︎︎︎  ${prefix}transformer
+│♲︎︎︎  ${prefix}berry
+│♲︎︎︎  ${prefix}thunder
+│♲︎︎︎  ${prefix}magma
+│♲︎︎︎  ${prefix}3dcrackedstone
+│♲︎︎︎  ${prefix}3dneonlight
+│♲︎︎︎  ${prefix}impressiveglitch
+│♲︎︎︎  ${prefix}naturalleaves
+│♲︎︎︎  ${prefix}fireworksparkle
+│♲︎︎︎  ${prefix}matrix
+│♲︎︎︎  ${prefix}dropwater
+│♲︎︎︎  ${prefix}harrypotter
+│♲︎︎︎  ${prefix}foggywindow
+│♲︎︎︎  ${prefix}neondevils
+│♲︎︎︎  ${prefix}christmasholiday
+│♲︎︎︎  ${prefix}3dgradient
+│♲︎︎︎  ${prefix}blackpink
+│♲︎︎︎  ${prefix}gluetext
+│
+└───────♲︎
 
-┏━━━━━⫹⫺ *Ephoto Menu*
-┃
-┃❏ ${prefix}ffcover
-┃❏ ${prefix}crossfire
-┃❏ ${prefix}galaxy
-┃❏ ${prefix}glass
-┃❏ ${prefix}neon
-┃❏ ${prefix}beach
-┃❏ ${prefix}blackpink
-┃❏ ${prefix}igcertificate
-┃❏ ${prefix}ytcertificate
-┗━━━━━━━━━━━━━━⫹⫺
+┌──♲︎ *PHOTO OXY MENU*
+│
+│♲︎︎︎  ${prefix}shadow
+│♲︎︎︎  ${prefix}romantic
+│♲︎︎︎  ${prefix}smoke
+│♲︎︎︎  ${prefix}burnpapper
+│♲︎︎︎  ${prefix}naruto
+│♲︎︎︎  ${prefix}lovemsg
+│♲︎︎︎  ${prefix}grassmsg
+│♲︎︎︎  ${prefix}lovetext
+│♲︎︎︎  ${prefix}coffecup
+│♲︎︎︎  ${prefix}butterfly
+│♲︎︎︎  ${prefix}harrypotter
+│♲︎︎︎  ${prefix}retrolol
+│
+└───────♲︎
 
-┏━━━━━⫹⫺ *Fun Menu*
-┃
-┃❏ ${prefix}apakah
-┃❏ ${prefix}bagaimanakah
-┃❏ ${prefix}kapankah
-┃❏ ${prefix}bisakah
-┃❏ ${prefix}rate
-┃❏ ${prefix}cekcantik
-┃❏ ${prefix}cekgay
-┃❏ ${prefix}ceksange
-┃❏ ${prefix}cekmati
-┃❏ ${prefix}ceklesbi
-┃❏ ${prefix}wangy
-┃❏ ${prefix}halah
-┃❏ ${prefix}hilih
-┃❏ ${prefix}huluh
-┃❏ ${prefix}heleh
-┃❏ ${prefix}holoh
-┃❏ ${prefix}jadian
-┃❏ ${prefix}jodohku
-┃❏ ${prefix}delttt
-┃❏ ${prefix}tictactoe
-┃❏ ${prefix}family100
-┃❏ ${prefix}tebak [option]
-┃❏ ${prefix}math [mode]
-┃❏ ${prefix}suitpvp [@tag]
-┗━━━━━━━━━━━━━━⫹⫺
+┌──♲︎ *EPHOTO MENU*
+│
+│♲︎︎︎  ${prefix}ffcover
+│♲︎︎︎  ${prefix}crossfire
+│♲︎︎︎  ${prefix}galaxy
+│♲︎︎︎  ${prefix}glass
+│♲︎︎︎  ${prefix}neon
+│♲︎︎︎  ${prefix}beach
+│♲︎︎︎  ${prefix}blackpink
+│♲︎︎︎  ${prefix}igcertificate
+│♲︎︎︎  ${prefix}ytcertificate
+│
+└───────♲︎
 
-┏━━━━━⫹⫺ *Primbon Menu*
-┃
-┃❏ ${prefix}nomorhoki
-┃❏ ${prefix}artimimpi
-┃❏ ${prefix}artinama
-┃❏ ${prefix}ramaljodoh
-┃❏ ${prefix}ramaljodohbali
-┃❏ ${prefix}suamiistri
-┃❏ ${prefix}ramalcinta
-┃❏ ${prefix}cocoknama
-┃❏ ${prefix}pasangan
-┃❏ ${prefix}jadiannikah
-┃❏ ${prefix}sifatusaha
-┃❏ ${prefix}rezeki
-┃❏ ${prefix}pekerjaan
-┃❏ ${prefix}nasib
-┃❏ ${prefix}penyakit
-┃❏ ${prefix}fengshui
-┃❏ ${prefix}haribaik
-┃❏ ${prefix}harisangar
-┃❏ ${prefix}harisial
-┃❏ ${prefix}nagahari
-┃❏ ${prefix}tarot
-┃❏ ${prefix}arahrezeki
-┃❏ ${prefix}peruntungan
-┃❏ ${prefix}weton
-┃❏ ${prefix}karakter
-┃❏ ${prefix}keberuntungan
-┃❏ ${prefix}memancing
-┃❏ ${prefix}masasubur
-┃❏ ${prefix}zodiak
-┃❏ ${prefix}shio
-┗━━━━━━━━━━━━━━⫹⫺
+┌──♲︎ *FUN MENU*
+│
+│♲︎︎︎  ${prefix}apakah
+│♲︎︎︎  ${prefix}bisakah
+│♲︎︎︎  ${prefix}bagaimanakah
+│♲︎︎︎  ${prefix}rate
+│♲︎︎︎  ${prefix}kapankah
+│♲︎︎︎  ${prefix}cekganteng
+│♲︎︎︎  ${prefix}cekcantik
+│♲︎︎︎  ${prefix}ceksange
+│♲︎︎︎  ${prefix}cekgay
+│♲︎︎︎  ${prefix}ceklesbi
+│♲︎︎︎  ${prefix}cekmati
+│♲︎︎︎  ${prefix}wangy
+│♲︎︎︎  ${prefix}halah
+│♲︎︎︎  ${prefix}hilih
+│♲︎︎︎  ${prefix}huluh
+│♲︎︎︎  ${prefix}heleh
+│♲︎︎︎  ${prefix}holoh
+│♲︎︎︎  ${prefix}jadian
+│♲︎︎︎  ${prefix}jodohku
+│♲︎︎︎  ${prefix}delttt
+│♲︎︎︎  ${prefix}tictactoe
+│♲︎︎︎  ${prefix}family100
+│♲︎︎︎  ${prefix}tebak [option]
+│♲︎︎︎  ${prefix}math [mode]
+│♲︎︎︎  ${prefix}suitpvp [@tag]
+│
+└───────♲︎
 
-┏━━━━━⫹⫺ *Convert Menu*
-┃
-┃❏ ${prefix}attp
-┃❏ ${prefix}toimage
-┃❏ ${prefix}removebg
-┃❏ ${prefix}sticker
-┃❏ ${prefix}stext
-┃❏ ${prefix}emojimix
-┃❏ ${prefix}emojimix2
-┃❏ ${prefix}tovideo
-┃❏ ${prefix}togif
-┃❏ ${prefix}tourl
-┃❏ ${prefix}tovn
-┃❏ ${prefix}tomp3
-┃❏ ${prefix}toaudio
-┃❏ ${prefix}ebinary
-┃❏ ${prefix}dbinary
-┃❏ ${prefix}styletext
-┗━━━━━━━━━━━━━━⫹⫺
+┌──♲︎ *PRIMBON MENU*
+│
+│♲︎︎︎  ${prefix}nomorhoki
+│♲︎︎︎  ${prefix}artimimpi
+│♲︎︎︎  ${prefix}artinama
+│♲︎︎︎  ${prefix}ramaljodoh
+│♲︎︎︎  ${prefix}ramaljodohbali
+│♲︎︎︎  ${prefix}suamiistri
+│♲︎︎︎  ${prefix}ramalcinta
+│♲︎︎︎  ${prefix}cocoknama
+│♲︎︎︎  ${prefix}pasangan
+│♲︎︎︎  ${prefix}jadiannikah
+│♲︎︎︎  ${prefix}sifatusaha
+│♲︎︎︎  ${prefix}rezeki
+│♲︎︎︎  ${prefix}pekerjaan
+│♲︎︎︎  ${prefix}nasib
+│♲︎︎︎  ${prefix}penyakit
+│♲︎︎︎  ${prefix}tarot
+│♲︎︎︎  ${prefix}fengshui
+│♲︎︎︎  ${prefix}haribaik
+│♲︎︎︎  ${prefix}harisangar
+│♲︎︎︎  ${prefix}harisial
+│♲︎︎︎  ${prefix}nagahari
+│♲︎︎︎  ${prefix}arahrezeki
+│♲︎︎︎  ${prefix}peruntungan
+│♲︎︎︎  ${prefix}weton
+│♲︎︎︎  ${prefix}karakter
+│♲︎︎︎  ${prefix}keberuntungan
+│♲︎︎︎  ${prefix}memancing
+│♲︎︎︎  ${prefix}masasubur
+│♲︎︎︎  ${prefix}zodiak
+│♲︎︎︎  ${prefix}shio
+│
+└───────♲︎
 
-┏━━━━━⫹⫺ *Main Menu*
-┃ 
-┃❏ ${prefix}ping
-┃❏ ${prefix}owner
-┃❏ ${prefix}runtime
-┃❏ ${prefix}menu / ${prefix}help / ${prefix}?
-┃❏ ${prefix}delete
-┃❏ ${prefix}infochat
-┃❏ ${prefix}quoted
-┃❏ ${prefix}listpc
-┃❏ ${prefix}listgc
-┃❏ ${prefix}listonline
-┃❏ ${prefix}speedtest
-┗━━━━━━━━━━━━━━⫹⫺
+┌──♲︎ *CONVERT MENU*
+│
+│♲︎︎︎  ${prefix}attp
+│♲︎︎︎  ${prefix}toimage
+│♲︎︎︎  ${prefix}removebg
+│♲︎︎︎  ${prefix}sticker
+│♲︎︎︎  ${prefix}stext
+│♲︎︎︎  ${prefix}emojimix
+│♲︎︎︎  ${prefix}emojimix2
+│♲︎︎︎  ${prefix}tovideo
+│♲︎︎︎  ${prefix}togif
+│♲︎︎︎  ${prefix}tourl
+│♲︎︎︎  ${prefix}tovn
+│♲︎︎︎  ${prefix}tomp3
+│♲︎︎︎  ${prefix}toaudio
+│♲︎︎︎  ${prefix}ebinary
+│♲︎︎︎  ${prefix}dbinary
+│♲︎︎︎  ${prefix}styletext
+│
+└───────♲︎
 
-┏━━━━━⫹⫺ *DataBase Menu*
-┃❏ 
-┃❏ ${prefix}setcmd
-┃❏ ${prefix}listcmd
-┃❏ ${prefix}delcmd
-┃❏ ${prefix}lockcmd
-┃❏ ${prefix}addmsg
-┃❏ ${prefix}listmsg
-┃❏ ${prefix}getmsg
-┃❏ ${prefix}delmsg
-┗━━━━━━━━━━━━━━⫹⫺
+┌──♲︎ *MAIN MENU*
+│
+│♲︎︎︎  ${prefix}ping
+│♲︎︎︎  ${prefix}owner
+│♲︎︎︎  ${prefix}runtime
+│♲︎︎︎  ${prefix}menu / ${prefix}help / ${prefix}?
+│♲︎︎︎  ${prefix}delete
+│♲︎︎︎  ${prefix}infochat
+│♲︎︎︎  ${prefix}quoted
+│♲︎︎︎  ${prefix}listpc
+│♲︎︎︎  ${prefix}listgc
+│♲︎︎︎  ${prefix}listonline
+│♲︎︎︎  ${prefix}speedtest
+│
+└───────♲︎
 
-┏━━━━━⫹⫺ *Anonymous*
-┃
-┃❏ ${prefix}anonymous
-┃❏ ${prefix}start
-┃❏ ${prefix}next
-┃❏ ${prefix}keluar
-┃❏ ${prefix}sendkontak
-┗━━━━━━━━━━━━━━⫹⫺
+┌──♲︎ *DATABASE MENU*
+│
+│♲︎︎︎  ${prefix}setcmd
+│♲︎︎︎  ${prefix}listcmd
+│♲︎︎︎  ${prefix}delcmd
+│♲︎︎︎  ${prefix}lockcmd
+│♲︎︎︎  ${prefix}addmsg
+│♲︎︎︎  ${prefix}listmsg
+│♲︎︎︎  ${prefix}getmsg
+│♲︎︎︎  ${prefix}delmsg
+│
+└───────♲︎
 
-┏━━━━━⫹⫺ *Islamic Menu*
-┃
-┃❏ ${prefix}iqra
-┃❏ ${prefix}hadist
-┃❏ ${prefix}alquran
-┃❏ ${prefix}juzamma
-┃❏ ${prefix}tafsirsurah
-┗━━━━━━━━━━━━━━⫹⫺
+┌──♲︎ *ANONYMOUS MENU*
+│
+│♲︎︎︎  ${prefix}anonymous
+│♲︎︎︎  ${prefix}start
+│♲︎︎︎  ${prefix}next
+│♲︎︎︎  ${prefix}keluar
+│♲︎︎︎  ${prefix}sendkontak
+│
+└───────♲︎
 
-┏━━━━━⫹⫺ *Voice Changer*
-┃
-┃❏ 
-┃❏ ${prefix}bass
-┃❏ ${prefix}blown
-┃❏ ${prefix}deep
-┃❏ ${prefix}earrape
-┃❏ ${prefix}fast
-┃❏ ${prefix}fat
-┃❏ ${prefix}nightcore
-┃❏ ${prefix}reverse
-┃❏ ${prefix}robot
-┃❏ ${prefix}slow
-┃❏ ${prefix}tupai
-┗━━━━━━━━━━━━━━⫹⫺
+┌──♲︎ *ISLAMIC MENU*
+│
+│♲︎︎︎  ${prefix}iqra
+│♲︎︎︎  ${prefix}hadist
+│♲︎︎︎  ${prefix}alquran
+│♲︎︎︎  ${prefix}juzamma
+│♲︎︎︎  ${prefix}tafsirsurah
+│
+└───────♲︎
 
-┏━━━━━⫹⫺ *Owner Menu*
-┃ 
-┃❏ ${prefix}react [emoji]
-┃❏ ${prefix}chat [option]
-┃❏ ${prefix}join [link]
-┃❏ ${prefix}leave
-┃❏ ${prefix}block @user
-┃❏ ${prefix}unblock @user
-┃❏ ${prefix}bcgroup [text]
-┃❏ ${prefix}bcall [text]
-┃❏ ${prefix}setppbot 'panjang' [image]
-┃❏ ${prefix}setexif
-┗━━━━━━━━━━━━━━⫹⫺`
+┌──♲︎ *VOICE CHANGER*
+│
+│♲︎︎︎  ${prefix}bass
+│♲︎︎︎  ${prefix}blown
+│♲︎︎︎  ${prefix}deep
+│♲︎︎︎  ${prefix}earrape
+│♲︎︎︎  ${prefix}fast
+│♲︎︎︎  ${prefix}fat
+│♲︎︎︎  ${prefix}nightcore
+│♲︎︎︎  ${prefix}reverse
+│♲︎︎︎  ${prefix}robot
+│♲︎︎︎  ${prefix}slow
+│♲︎︎︎  ${prefix}tupai
+│
+└───────♲︎
+
+┌──♲︎ *OWNER MENU*
+│
+│♲︎︎︎  ${prefix}react [emoji]
+│♲︎︎︎  ${prefix}chat [option]
+│♲︎︎︎  ${prefix}join [link]
+│♲︎︎︎  ${prefix}leave
+│♲︎︎︎  ${prefix}block @user
+│♲︎︎︎  ${prefix}unblock @user
+│♲︎︎︎  ${prefix}bcgroup [text]
+│♲︎︎︎  ${prefix}bcall [text]
+│♲︎︎︎  ${prefix}setppbot [image]
+│♲︎︎︎  ${prefix}setexif
+│
+└───────♲︎`
 let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
             case 'groupmenu': {
                 anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
 │ Prefix : ( ${prefix} )
 │ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
@@ -3410,118 +3357,118 @@ let btn = [{
 │ Runtime : ${runtime(process.uptime())}
 │ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *GROUP MENU*
+┌──♲︎ *GROUP MENU*
 │
-│❏ ${prefix}linkgroup
-│❏ ${prefix}ephemeral [option]
-│❏ ${prefix}setppgc [image]
-│❏ ${prefix}setname [text]
-│❏ ${prefix}setdesc [text]
-│❏ ${prefix}group [option]
-│❏ ${prefix}editinfo [option]
-│❏ ${prefix}add @user
-│❏ ${prefix}kick @user
-│❏ ${prefix}hidetag [text]
-│❏ ${prefix}tagall [text]
-│❏ ${prefix}antilink [on/off]
-│❏ ${prefix}mute [on/off]
-│❏ ${prefix}promote @user
-│❏ ${prefix}demote @user
-│❏ ${prefix}vote [text]
-│❏ ${prefix}devote
-│❏ ${prefix}upvote
-│❏ ${prefix}cekvote
-│❏ ${prefix}hapusvote
+│♲︎︎︎  ${prefix}linkgroup
+│♲︎︎︎  ${prefix}ephemeral [option]
+│♲︎︎︎  ${prefix}setppgc [image]
+│♲︎︎︎  ${prefix}setname [text]
+│♲︎︎︎  ${prefix}setdesc [text]
+│♲︎︎︎  ${prefix}group [option]
+│♲︎︎︎  ${prefix}editinfo [option]
+│♲︎︎︎  ${prefix}add @user
+│♲︎︎︎  ${prefix}kick @user
+│♲︎︎︎  ${prefix}hidetag [text]
+│♲︎︎︎  ${prefix}tagall [text]
+│♲︎︎︎  ${prefix}antilink [on/off]
+│♲︎︎︎  ${prefix}mute [on/off]
+│♲︎︎︎  ${prefix}promote @user
+│♲︎︎︎  ${prefix}demote @user
+│♲︎︎︎  ${prefix}vote [text]
+│♲︎︎︎  ${prefix}devote
+│♲︎︎︎  ${prefix}upvote
+│♲︎︎︎  ${prefix}cekvote
+│♲︎︎︎  ${prefix}hapusvote
 │
-└───────⫹⫺`
+└───────♲︎`
                 let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
 case 'downloadmenu': {
-                anu = `Hai 👋 ${pushname}
+                anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
-│ Prefix 📋 : ( ${prefix} )
-│ Name 🤖 : ${global.namabot}\n│ Owner : ${global.namaowner}
-│ Mode ☕ : ${hisoka.public ? 'Public' : 'Self'}
-│ Runtime ⏱️ : ${runtime(process.uptime())}
-│ Lib 📂 : Baileys Multi Device
+│ Prefix : ( ${prefix} )
+│ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
+│ Mode : ${hisoka.public ? 'Public' : 'Self'}
+│ Runtime : ${runtime(process.uptime())}
+│ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *DOWNLOAD MENU*
+┌──♲︎ *DOWNLOAD MENU*
 │
-│❏ ${prefix}tiktoknowm [url]
-│❏ ${prefix}tiktokwm [url]
-│❏ ${prefix}tiktokmp3 [url]
-│❏ ${prefix}instagram [url]
-│❏ ${prefix}twitter [url]
-│❏ ${prefix}twittermp3 [url]
-│❏ ${prefix}facebook [url]
-│❏ ${prefix}pinterestdl [url]
-│❏ ${prefix}ytmp3 [url]
-│❏ ${prefix}ytmp4 [url]
-│❏ ${prefix}getmusic [query]
-│❏ ${prefix}getvideo [query]
-│❏ ${prefix}umma [url]
-│❏ ${prefix}joox [query]
-│❏ ${prefix}soundcloud [url]
+│♲︎︎︎  ${prefix}tiktoknowm [url]
+│♲︎︎︎  ${prefix}tiktokwm [url]
+│♲︎︎︎  ${prefix}tiktokmp3 [url]
+│♲︎︎︎  ${prefix}instagram [url]
+│♲︎︎︎  ${prefix}twitter [url]
+│♲︎︎︎  ${prefix}twittermp3 [url]
+│♲︎︎︎  ${prefix}facebook [url]
+│♲︎︎︎  ${prefix}pinterestdl [url]
+│♲︎︎︎  ${prefix}ytmp3 [url]
+│♲︎︎︎  ${prefix}ytmp4 [url]
+│♲︎︎︎  ${prefix}getmusic [query]
+│♲︎︎︎  ${prefix}getvideo [query]
+│♲︎︎︎  ${prefix}umma [url]
+│♲︎︎︎  ${prefix}joox [query]
+│♲︎︎︎  ${prefix}soundcloud [url]
 │
-└───────⫹⫺`
+└───────♲︎`
          let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
 case 'searchmenu': {
                 anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
 │ Prefix : ( ${prefix} )
 │ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
@@ -3529,51 +3476,51 @@ case 'searchmenu': {
 │ Runtime : ${runtime(process.uptime())}
 │ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *SEARCH MENU*
+┌──♲︎ *SEARCH MENU*
 │
-│❏ ${prefix}play [query]
-│❏ ${prefix}yts [query]
-│❏ ${prefix}google [query]
-│❏ ${prefix}gimage [query]
-│❏ ${prefix}pinterest [query]
-│❏ ${prefix}wallpaper [query]
-│❏ ${prefix}wikimedia [query]
-│❏ ${prefix}ytsearch [query]
-│❏ ${prefix}ringtone [query]
-│❏ ${prefix}stalk [option] [query]
+│♲︎︎︎  ${prefix}play [query]
+│♲︎︎︎  ${prefix}yts [query]
+│♲︎︎︎  ${prefix}google [query]
+│♲︎︎︎  ${prefix}gimage [query]
+│♲︎︎︎  ${prefix}pinterest [query]
+│♲︎︎︎  ${prefix}wallpaper [query]
+│♲︎︎︎  ${prefix}wikimedia [query]
+│♲︎︎︎  ${prefix}ytsearch [query]
+│♲︎︎︎  ${prefix}ringtone [query]
+│♲︎︎︎  ${prefix}stalk [option] [query]
 │
-└───────⫹⫺`
+└───────♲︎`
        let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
 case 'mememenu': {
                 anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
 │ Prefix : ( ${prefix} )
 │ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
@@ -3581,24 +3528,24 @@ case 'mememenu': {
 │ Runtime : ${runtime(process.uptime())}
 │ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *MEME MENU*
+┌──♲︎ *MEME MENU*
 │
-│❏ ${prefix}meme
-│❏ ${prefix}memeindo
-│❏ ${prefix}darkjokes
-│❏ ${prefix}darkmeme
+│♲︎︎︎  ${prefix}meme
+│♲︎︎︎  ${prefix}memeindo
+│♲︎︎︎  ${prefix}darkjokes
+│♲︎︎︎  ${prefix}darkmeme
 │
-└───────⫹⫺`
+└───────♲︎`
 let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
@@ -3608,18 +3555,18 @@ let btn = [{
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
 case 'randommenu': {
                 anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
 │ Prefix : ( ${prefix} )
 │ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
@@ -3627,37 +3574,37 @@ case 'randommenu': {
 │ Runtime : ${runtime(process.uptime())}
 │ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *RANDOM MENU*
+┌──♲︎ *RANDOM MENU*
 │
-│❏ ${prefix}coffe
-│❏ ${prefix}quotesanime
-│❏ ${prefix}motivasi
-│❏ ${prefix}dilanquote
-│❏ ${prefix}bucinquote
-│❏ ${prefix}katasenja
-│❏ ${prefix}puisi
-│❏ ${prefix}couple
-│❏ ${prefix}anime
-│❏ ${prefix}waifu
-│❏ ${prefix}husbu
-│❏ ${prefix}neko
-│❏ ${prefix}shinobu
-│❏ ${prefix}waifus (nsfw)
-│❏ ${prefix}nekos (nsfw)
-│❏ ${prefix}trap (nsfw)
-│❏ ${prefix}blowjob (nsfw)
+│♲︎︎︎  ${prefix}coffe
+│♲︎︎︎  ${prefix}quotesanime
+│♲︎︎︎  ${prefix}motivasi
+│♲︎︎︎  ${prefix}dilanquote
+│♲︎︎︎  ${prefix}bucinquote
+│♲︎︎︎  ${prefix}katasenja
+│♲︎︎︎  ${prefix}puisi
+│♲︎︎︎  ${prefix}couple
+│♲︎︎︎  ${prefix}anime
+│♲︎︎︎  ${prefix}waifu
+│♲︎︎︎  ${prefix}husbu
+│♲︎︎︎  ${prefix}neko
+│♲︎︎︎  ${prefix}shinobu
+│♲︎︎︎  ${prefix}waifus (nsfw)
+│♲︎︎︎  ${prefix}nekos (nsfw)
+│♲︎︎︎  ${prefix}trap (nsfw)
+│♲︎︎︎  ${prefix}blowjob (nsfw)
 │
-└───────⫹⫺`
+└───────♲︎`
        let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
@@ -3667,11 +3614,11 @@ case 'randommenu': {
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
@@ -3679,7 +3626,7 @@ case 'randommenu': {
 case 'textpromenu': {
                 anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
 │ Prefix : ( ${prefix} )
 │ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
@@ -3687,72 +3634,72 @@ case 'textpromenu': {
 │ Runtime : ${runtime(process.uptime())}
 │ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *TEXT PRO MENU*
+┌──♲︎ *TEXT PRO MENU*
 │
-│❏ ${prefix}3dchristmas
-│❏ ${prefix}3ddeepsea
-│❏ ${prefix}americanflag
-│❏ ${prefix}3dscifi
-│❏ ${prefix}3drainbow
-│❏ ${prefix}3dwaterpipe
-│❏ ${prefix}halloweenskeleton
-│❏ ${prefix}sketch
-│❏ ${prefix}bluecircuit
-│❏ ${prefix}space
-│❏ ${prefix}metallic
-│❏ ${prefix}fiction
-│❏ ${prefix}greenhorror
-│❏ ${prefix}transformer
-│❏ ${prefix}berry
-│❏ ${prefix}thunder
-│❏ ${prefix}magma
-│❏ ${prefix}3dcrackedstone
-│❏ ${prefix}3dneonlight
-│❏ ${prefix}impressiveglitch
-│❏ ${prefix}naturalleaves
-│❏ ${prefix}fireworksparkle
-│❏ ${prefix}matrix
-│❏ ${prefix}dropwater
-│❏ ${prefix}harrypotter
-│❏ ${prefix}foggywindow
-│❏ ${prefix}neondevils
-│❏ ${prefix}christmasholiday
-│❏ ${prefix}3dgradient
-│❏ ${prefix}blackpink
-│❏ ${prefix}gluetext
+│♲︎︎︎  ${prefix}3dchristmas
+│♲︎︎︎  ${prefix}3ddeepsea
+│♲︎︎︎  ${prefix}americanflag
+│♲︎︎︎  ${prefix}3dscifi
+│♲︎︎︎  ${prefix}3drainbow
+│♲︎︎︎  ${prefix}3dwaterpipe
+│♲︎︎︎  ${prefix}halloweenskeleton
+│♲︎︎︎  ${prefix}sketch
+│♲︎︎︎  ${prefix}bluecircuit
+│♲︎︎︎  ${prefix}space
+│♲︎︎︎  ${prefix}metallic
+│♲︎︎︎  ${prefix}fiction
+│♲︎︎︎  ${prefix}greenhorror
+│♲︎︎︎  ${prefix}transformer
+│♲︎︎︎  ${prefix}berry
+│♲︎︎︎  ${prefix}thunder
+│♲︎︎︎  ${prefix}magma
+│♲︎︎︎  ${prefix}3dcrackedstone
+│♲︎︎︎  ${prefix}3dneonlight
+│♲︎︎︎  ${prefix}impressiveglitch
+│♲︎︎︎  ${prefix}naturalleaves
+│♲︎︎︎  ${prefix}fireworksparkle
+│♲︎︎︎  ${prefix}matrix
+│♲︎︎︎  ${prefix}dropwater
+│♲︎︎︎  ${prefix}harrypotter
+│♲︎︎︎  ${prefix}foggywindow
+│♲︎︎︎  ${prefix}neondevils
+│♲︎︎︎  ${prefix}christmasholiday
+│♲︎︎︎  ${prefix}3dgradient
+│♲︎︎︎  ${prefix}blackpink
+│♲︎︎︎  ${prefix}gluetext
 │
-└───────⫹⫺`
+└───────♲︎`
 let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
 case 'photooxymenu': {
                 anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
 │ Prefix : ( ${prefix} )
 │ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
@@ -3760,53 +3707,53 @@ case 'photooxymenu': {
 │ Runtime : ${runtime(process.uptime())}
 │ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *PHOTO OXY MENU*
+┌──♲︎ *PHOTO OXY MENU*
 │
-│❏ ${prefix}shadow
-│❏ ${prefix}romantic
-│❏ ${prefix}smoke
-│❏ ${prefix}burnpapper
-│❏ ${prefix}naruto
-│❏ ${prefix}lovemsg
-│❏ ${prefix}grassmsg
-│❏ ${prefix}lovetext
-│❏ ${prefix}coffecup
-│❏ ${prefix}butterfly
-│❏ ${prefix}harrypotter
-│❏ ${prefix}retrolol
+│♲︎︎︎  ${prefix}shadow
+│♲︎︎︎  ${prefix}romantic
+│♲︎︎︎  ${prefix}smoke
+│♲︎︎︎  ${prefix}burnpapper
+│♲︎︎︎  ${prefix}naruto
+│♲︎︎︎  ${prefix}lovemsg
+│♲︎︎︎  ${prefix}grassmsg
+│♲︎︎︎  ${prefix}lovetext
+│♲︎︎︎  ${prefix}coffecup
+│♲︎︎︎  ${prefix}butterfly
+│♲︎︎︎  ${prefix}harrypotter
+│♲︎︎︎  ${prefix}retrolol
 │
-└───────⫹⫺`
+└───────♲︎`
 let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
 case 'ephotomenu': {
                 anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
 │ Prefix : ( ${prefix} )
 │ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
@@ -3814,50 +3761,50 @@ case 'ephotomenu': {
 │ Runtime : ${runtime(process.uptime())}
 │ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *EPHOTO MENU*
+┌──♲︎ *EPHOTO MENU*
 │
-│❏ ${prefix}ffcover
-│❏ ${prefix}crossfire
-│❏ ${prefix}galaxy
-│❏ ${prefix}glass
-│❏ ${prefix}neon
-│❏ ${prefix}beach
-│❏ ${prefix}blackpink
-│❏ ${prefix}igcertificate
-│❏ ${prefix}ytcertificate
+│♲︎︎︎  ${prefix}ffcover
+│♲︎︎︎  ${prefix}crossfire
+│♲︎︎︎  ${prefix}galaxy
+│♲︎︎︎  ${prefix}glass
+│♲︎︎︎  ${prefix}neon
+│♲︎︎︎  ${prefix}beach
+│♲︎︎︎  ${prefix}blackpink
+│♲︎︎︎  ${prefix}igcertificate
+│♲︎︎︎  ${prefix}ytcertificate
 │
-└───────⫹⫺`
+└───────♲︎`
 let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
 case 'funmenu': {
                 anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
 │ Prefix : ( ${prefix} )
 │ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
@@ -3865,66 +3812,66 @@ case 'funmenu': {
 │ Runtime : ${runtime(process.uptime())}
 │ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *FUN MENU*
+┌──♲︎ *FUN MENU*
 │
-│❏ ${prefix}apakah
-│❏ ${prefix}bisakah
-│❏ ${prefix}bagaimanakah
-│❏ ${prefix}rate
-│❏ ${prefix}kapankah
-│❏ ${prefix}cekganteng
-│❏ ${prefix}cekcantik
-│❏ ${prefix}ceksange
-│❏ ${prefix}cekgay
-│❏ ${prefix}ceklesbi
-│❏ ${prefix}cekmati
-│❏ ${prefix}wangy
-│❏ ${prefix}halah
-│❏ ${prefix}hilih
-│❏ ${prefix}huluh
-│❏ ${prefix}heleh
-│❏ ${prefix}holoh
-│❏ ${prefix}jadian
-│❏ ${prefix}jodohku
-│❏ ${prefix}delttt
-│❏ ${prefix}tictactoe
-│❏ ${prefix}family100
-│❏ ${prefix}tebak [option]
-│❏ ${prefix}math [mode]
-│❏ ${prefix}suitpvp [@tag]
+│♲︎︎︎  ${prefix}apakah
+│♲︎︎︎  ${prefix}bisakah
+│♲︎︎︎  ${prefix}bagaimanakah
+│♲︎︎︎  ${prefix}rate
+│♲︎︎︎  ${prefix}kapankah
+│♲︎︎︎  ${prefix}cekganteng
+│♲︎︎︎  ${prefix}cekcantik
+│♲︎︎︎  ${prefix}ceksange
+│♲︎︎︎  ${prefix}cekgay
+│♲︎︎︎  ${prefix}ceklesbi
+│♲︎︎︎  ${prefix}cekmati
+│♲︎︎︎  ${prefix}wangy
+│♲︎︎︎  ${prefix}halah
+│♲︎︎︎  ${prefix}hilih
+│♲︎︎︎  ${prefix}huluh
+│♲︎︎︎  ${prefix}heleh
+│♲︎︎︎  ${prefix}holoh
+│♲︎︎︎  ${prefix}jadian
+│♲︎︎︎  ${prefix}jodohku
+│♲︎︎︎  ${prefix}delttt
+│♲︎︎︎  ${prefix}tictactoe
+│♲︎︎︎  ${prefix}family100
+│♲︎︎︎  ${prefix}tebak [option]
+│♲︎︎︎  ${prefix}math [mode]
+│♲︎︎︎  ${prefix}suitpvp [@tag]
 │
-└───────⫹⫺`
+└───────♲︎`
 let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
 case 'primbonmenu': {
                 anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
 │ Prefix : ( ${prefix} )
 │ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
@@ -3932,71 +3879,71 @@ case 'primbonmenu': {
 │ Runtime : ${runtime(process.uptime())}
 │ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *PRIMBON MENU*
+┌──♲︎ *PRIMBON MENU*
 │
-│❏ ${prefix}nomorhoki
-│❏ ${prefix}artimimpi
-│❏ ${prefix}artinama
-│❏ ${prefix}ramaljodoh
-│❏ ${prefix}ramaljodohbali
-│❏ ${prefix}suamiistri
-│❏ ${prefix}ramalcinta
-│❏ ${prefix}cocoknama
-│❏ ${prefix}pasangan
-│❏ ${prefix}jadiannikah
-│❏ ${prefix}sifatusaha
-│❏ ${prefix}rezeki
-│❏ ${prefix}pekerjaan
-│❏ ${prefix}nasib
-│❏ ${prefix}penyakit
-│❏ ${prefix}tarot
-│❏ ${prefix}fengshui
-│❏ ${prefix}haribaik
-│❏ ${prefix}harisangar
-│❏ ${prefix}harisial
-│❏ ${prefix}nagahari
-│❏ ${prefix}arahrezeki
-│❏ ${prefix}peruntungan
-│❏ ${prefix}weton
-│❏ ${prefix}karakter
-│❏ ${prefix}keberuntungan
-│❏ ${prefix}memancing
-│❏ ${prefix}masasubur
-│❏ ${prefix}zodiak
-│❏ ${prefix}shio
+│♲︎︎︎  ${prefix}nomorhoki
+│♲︎︎︎  ${prefix}artimimpi
+│♲︎︎︎  ${prefix}artinama
+│♲︎︎︎  ${prefix}ramaljodoh
+│♲︎︎︎  ${prefix}ramaljodohbali
+│♲︎︎︎  ${prefix}suamiistri
+│♲︎︎︎  ${prefix}ramalcinta
+│♲︎︎︎  ${prefix}cocoknama
+│♲︎︎︎  ${prefix}pasangan
+│♲︎︎︎  ${prefix}jadiannikah
+│♲︎︎︎  ${prefix}sifatusaha
+│♲︎︎︎  ${prefix}rezeki
+│♲︎︎︎  ${prefix}pekerjaan
+│♲︎︎︎  ${prefix}nasib
+│♲︎︎︎  ${prefix}penyakit
+│♲︎︎︎  ${prefix}tarot
+│♲︎︎︎  ${prefix}fengshui
+│♲︎︎︎  ${prefix}haribaik
+│♲︎︎︎  ${prefix}harisangar
+│♲︎︎︎  ${prefix}harisial
+│♲︎︎︎  ${prefix}nagahari
+│♲︎︎︎  ${prefix}arahrezeki
+│♲︎︎︎  ${prefix}peruntungan
+│♲︎︎︎  ${prefix}weton
+│♲︎︎︎  ${prefix}karakter
+│♲︎︎︎  ${prefix}keberuntungan
+│♲︎︎︎  ${prefix}memancing
+│♲︎︎︎  ${prefix}masasubur
+│♲︎︎︎  ${prefix}zodiak
+│♲︎︎︎  ${prefix}shio
 │
-└───────⫹⫺`
+└───────♲︎`
 let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
 case 'convertmenu': {
                 anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
 │ Prefix : ( ${prefix} )
 │ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
@@ -4004,57 +3951,57 @@ case 'convertmenu': {
 │ Runtime : ${runtime(process.uptime())}
 │ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *CONVERT MENU*
+┌──♲︎ *CONVERT MENU*
 │
-│❏ ${prefix}attp
-│❏ ${prefix}toimage
-│❏ ${prefix}removebg
-│❏ ${prefix}stext
-│❏ ${prefix}sticker
-│❏ ${prefix}emojimix
-│❏ ${prefix}emojimix2
-│❏ ${prefix}tovideo
-│❏ ${prefix}togif
-│❏ ${prefix}tourl
-│❏ ${prefix}tovn
-│❏ ${prefix}tomp3
-│❏ ${prefix}toaudio
-│❏ ${prefix}ebinary
-│❏ ${prefix}dbinary
-│❏ ${prefix}styletext
+│♲︎︎︎  ${prefix}attp
+│♲︎︎︎  ${prefix}toimage
+│♲︎︎︎  ${prefix}removebg
+│♲︎︎︎  ${prefix}stext
+│♲︎︎︎  ${prefix}sticker
+│♲︎︎︎  ${prefix}emojimix
+│♲︎︎︎  ${prefix}emojimix2
+│♲︎︎︎  ${prefix}tovideo
+│♲︎︎︎  ${prefix}togif
+│♲︎︎︎  ${prefix}tourl
+│♲︎︎︎  ${prefix}tovn
+│♲︎︎︎  ${prefix}tomp3
+│♲︎︎︎  ${prefix}toaudio
+│♲︎︎︎  ${prefix}ebinary
+│♲︎︎︎  ${prefix}dbinary
+│♲︎︎︎  ${prefix}styletext
 │
-└───────⫹⫺`
+└───────♲︎`
 let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
 case 'mainmenu': {
                 anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
 │ Prefix : ( ${prefix} )
 │ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
@@ -4062,52 +4009,52 @@ case 'mainmenu': {
 │ Runtime : ${runtime(process.uptime())}
 │ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *MAIN MENU*
+┌──♲︎ *MAIN MENU*
 │
-│❏ ${prefix}ping
-│❏ ${prefix}owner
-│❏ ${prefix}runtime
-│❏ ${prefix}menu / ${prefix}help / ${prefix}?
-│❏ ${prefix}delete
-│❏ ${prefix}infochat
-│❏ ${prefix}quoted
-│❏ ${prefix}listpc
-│❏ ${prefix}listgc
-│❏ ${prefix}listonline
-│❏ ${prefix}speedtest
+│♲︎︎︎  ${prefix}ping
+│♲︎︎︎  ${prefix}owner
+│♲︎︎︎  ${prefix}runtime
+│♲︎︎︎  ${prefix}menu / ${prefix}help / ${prefix}?
+│♲︎︎︎  ${prefix}delete
+│♲︎︎︎  ${prefix}infochat
+│♲︎︎︎  ${prefix}quoted
+│♲︎︎︎  ${prefix}listpc
+│♲︎︎︎  ${prefix}listgc
+│♲︎︎︎  ${prefix}listonline
+│♲︎︎︎  ${prefix}speedtest
 │
-└───────⫹⫺`
+└───────♲︎`
 let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
 case 'databasemenu': {
                 anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
 │ Prefix : ( ${prefix} )
 │ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
@@ -4115,49 +4062,49 @@ case 'databasemenu': {
 │ Runtime : ${runtime(process.uptime())}
 │ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *DATABASE MENU*
+┌──♲︎ *DATABASE MENU*
 │
-│❏ ${prefix}setcmd
-│❏ ${prefix}listcmd
-│❏ ${prefix}delcmd
-│❏ ${prefix}lockcmd
-│❏ ${prefix}addmsg
-│❏ ${prefix}listmsg
-│❏ ${prefix}getmsg
-│❏ ${prefix}delmsg
+│♲︎︎︎  ${prefix}setcmd
+│♲︎︎︎  ${prefix}listcmd
+│♲︎︎︎  ${prefix}delcmd
+│♲︎︎︎  ${prefix}lockcmd
+│♲︎︎︎  ${prefix}addmsg
+│♲︎︎︎  ${prefix}listmsg
+│♲︎︎︎  ${prefix}getmsg
+│♲︎︎︎  ${prefix}delmsg
 │
-└───────⫹⫺`
+└───────♲︎`
 let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
 case 'anonymousmenu': {
                 anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
 │ Prefix : ( ${prefix} )
 │ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
@@ -4165,46 +4112,46 @@ case 'anonymousmenu': {
 │ Runtime : ${runtime(process.uptime())}
 │ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *ANONYMOUS MENU*
+┌──♲︎ *ANONYMOUS MENU*
 │
-│❏ ${prefix}anonymous
-│❏ ${prefix}start
-│❏ ${prefix}next
-│❏ ${prefix}keluar
-│❏ ${prefix}sendkontak
+│♲︎︎︎  ${prefix}anonymous
+│♲︎︎︎  ${prefix}start
+│♲︎︎︎  ${prefix}next
+│♲︎︎︎  ${prefix}keluar
+│♲︎︎︎  ${prefix}sendkontak
 │
-└───────⫹⫺`
+└───────♲︎`
 let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
 case 'islamicmenu': {
                 anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
 │ Prefix : ( ${prefix} )
 │ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
@@ -4212,46 +4159,46 @@ case 'islamicmenu': {
 │ Runtime : ${runtime(process.uptime())}
 │ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *ISLAMIC MENU*
+┌──♲︎ *ISLAMIC MENU*
 │
-│❏ ${prefix}iqra
-│❏ ${prefix}hadist
-│❏ ${prefix}alquran
-│❏ ${prefix}juzamma
-│❏ ${prefix}tafsirsurah
+│♲︎︎︎  ${prefix}iqra
+│♲︎︎︎  ${prefix}hadist
+│♲︎︎︎  ${prefix}alquran
+│♲︎︎︎  ${prefix}juzamma
+│♲︎︎︎  ${prefix}tafsirsurah
 │
-└───────⫹⫺`
+└───────♲︎`
 let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
 case 'voicechangermenu': {
                 anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
 │ Prefix : ( ${prefix} )
 │ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
@@ -4259,52 +4206,52 @@ case 'voicechangermenu': {
 │ Runtime : ${runtime(process.uptime())}
 │ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *VOICE CHANGER*
+┌──♲︎ *VOICE CHANGER*
 │
-│❏ ${prefix}bass
-│❏ ${prefix}blown
-│❏ ${prefix}deep
-│❏ ${prefix}earrape
-│❏ ${prefix}fast
-│❏ ${prefix}fat
-│❏ ${prefix}nightcore
-│❏ ${prefix}reverse
-│❏ ${prefix}robot
-│❏ ${prefix}slow
-│❏ ${prefix}tupai
+│♲︎︎︎  ${prefix}bass
+│♲︎︎︎  ${prefix}blown
+│♲︎︎︎  ${prefix}deep
+│♲︎︎︎  ${prefix}earrape
+│♲︎︎︎  ${prefix}fast
+│♲︎︎︎  ${prefix}fat
+│♲︎︎︎  ${prefix}nightcore
+│♲︎︎︎  ${prefix}reverse
+│♲︎︎︎  ${prefix}robot
+│♲︎︎︎  ${prefix}slow
+│♲︎︎︎  ${prefix}tupai
 │
-└───────⫹⫺`
+└───────♲︎`
 let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
 case 'ownermenu': {
                 anu = `Hai Kak ${pushname}
                 
-┌──⫹⫺ 「 INFO BOT 」⫹⫺
+┌──♲︎ 「 INFO BOT 」♲︎
 │
 │ Prefix : ( ${prefix} )
 │ Name : ${global.namabot}\n│ Owner : ${global.namaowner}
@@ -4312,83 +4259,84 @@ case 'ownermenu': {
 │ Runtime : ${runtime(process.uptime())}
 │ Lib : Baileys Multi Device
 │
-└───────⫹⫺
+└───────♲︎
 
-┌──⫹⫺ *OWNER MENU*
+┌──♲︎ *OWNER MENU*
 │
-│❏ ${prefix}react [emoji]
-│❏ ${prefix}chat [option]
-│❏ ${prefix}join [link]
-│❏ ${prefix}leave
-│❏ ${prefix}block @user
-│❏ ${prefix}unblock @user
-│❏ ${prefix}bcgroup [text]
-│❏ ${prefix}bcall [text]
-│❏ ${prefix}setppbot [image]
-│❏ ${prefix}setexif
+│♲︎︎︎  ${prefix}react [emoji]
+│♲︎︎︎  ${prefix}chat [option]
+│♲︎︎︎  ${prefix}join [link]
+│♲︎︎︎  ${prefix}leave
+│♲︎︎︎  ${prefix}block @user
+│♲︎︎︎  ${prefix}unblock @user
+│♲︎︎︎  ${prefix}bcgroup [text]
+│♲︎︎︎  ${prefix}bcall [text]
+│♲︎︎︎  ${prefix}setppbot [image]
+│♲︎︎︎  ${prefix}setexif
 │
-└───────⫹⫺`
+└───────♲︎`
 let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
 
 case 'thanksto': {
                 anu = `Hai Kak ${pushname}
 
-┌──⫹⫺ *THANKS TO*
+┌──♲︎ *THANKS TO*
 │
-│❏ Allah Swt
-│❏ Dika Ardnt (Pemilik Base)
-│❏ GuaAbuzz
-│❏ Fandy
-│❏ Daffa
-│❏ Penyedia Module
-│❏ Penyedia Rest Api
+│♲︎︎︎  Allah Swt
+│♲︎︎︎  Ortu Saya
+│♲︎︎︎  Dika Ardnt (Pemilik Base)
+│♲︎︎︎  GuaAbuzz
+│♲︎︎︎  Fandy
+│♲︎︎︎  Daffa
+│♲︎︎︎  Penyedia Module
+│♲︎︎︎  Penyedia Rest Api
 │
-└───────⫹⫺`
+└───────♲︎`
 let btn = [{
                                 urlButton: {
-                                    displayText: 'Gɾυρ Oϝƈ',
+                                    displayText: '♲︎︎︎ ᴍʏ ɢʀᴏᴜᴘ',
                                     url: 'https://chat.whatsapp.com/B9cQxA0NWrXHtFclMS5awJ'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Rυʅҽʂ',
+                                    displayText: '♲︎︎︎ ʙᴏᴛ ʀᴜʟᴇs',
                                     id: 'rules'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Oɯɳҽɾ',
+                                    displayText: '♲︎︎︎ ᴍʏ ᴏᴡɴᴇʀ',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Lιʂƚ ɱҽɳυ',
+                                    displayText: '♲︎︎︎ ʟɪsᴛ ᴍᴇɴᴜ',
                                     id: 'command'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, 'IMV BOT ⫹⫺', global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, 'ɪᴍᴠ ʙᴏᴛ ☕︎', global.thumb, btn)
                      }
             break
             default:

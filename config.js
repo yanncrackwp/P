@@ -19,11 +19,11 @@ global.APIKeys = {
 
 // Other
 global.owner = ['6282252285143']
-global.premium = ['6282252285143']
-global.namaowner = ['𝓡𝔂𝓪𝓷 𝓐𝓭𝓲𝓽𝔂𝓪']
-global.namabot = ['ιмν вσтz-Mԃ']
-global.packname = '© ιмν вσт-Mԃ'
-global.author = 'Bყ 𝓡𝔂𝓪𝓷 𝓐𝓭𝓲𝓽𝔂𝓪'
+global.premium = ['6282252285144']
+global.namaowner = ['♲︎︎︎ ɪᴍᴠ ʏᴀɴɴ']
+global.namabot = ['ɪᴍᴠ ʙᴏᴛ ☕︎']
+global.packname = 'ɪᴍᴠ ʙᴏᴛ'
+global.author = 'By Imv Team'
 global.sessionName = 'hisoka'
 global.prefa = ['','!','.','🐦','🐤','🗿']
 global.sp = '⭔'
